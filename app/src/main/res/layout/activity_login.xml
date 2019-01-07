@@ -34,11 +34,11 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
                 android:text="Courier Application System"
-                android:textColor="@color/biruJNE"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:layout_marginBottom="20dp"
+                android:textColor="@color/biruJNE"
                 android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#1e3277</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#1e3277</color>
+    <color name="colorPrimaryDark">#000051</color>
+    <color name="colorAccent">#d32f2f</color>
 
     <color name="merahJNE">#b20004</color>
     <color name="efekmerah">#ff0007</color>
