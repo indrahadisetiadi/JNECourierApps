@@ -6,15 +6,16 @@ import android.widget.Button;
 import android.view.View;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
-import com.airbnb.lottie.LottieAnimationView;
 
 
 public class LoginActivity extends AppCompatActivity {
+    EditText Email, Password;
     Button LoginButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
