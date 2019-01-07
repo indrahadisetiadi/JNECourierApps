@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#1e3277</color>
 
-    <color name="merahJNE">#dd1c21</color>
+    <color name="merahJNE">#b20004</color>
+    <color name="efekmerah">#ff0007</color>
     <color name="biruJNE">#1e3277</color>
     <color name="putih">#FFFFFF</color>
 </resources>
