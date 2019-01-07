@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //tests
+    //dua
 
     private void openDialog(){
 
