@@ -5,6 +5,6 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Activity.LoginActivity">
 
 </android.support.constraint.ConstraintLayout>
