@@ -78,7 +78,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
-                android:background="@color/merahJNE"
+                android:background="@drawable/ripple_effect"
                 android:text="Login"
                 android:textAllCaps="false"
                 android:textColor="#fff"
