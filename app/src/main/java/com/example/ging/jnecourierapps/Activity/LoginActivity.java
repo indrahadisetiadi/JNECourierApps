@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //tests
+
     private void openDialog(){
 
         LinearLayout layout = new LinearLayout(LoginActivity.this);
