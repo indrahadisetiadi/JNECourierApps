@@ -2,8 +2,9 @@
 <resources>
     <color name="colorPrimary">#1e3277</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#1e3277</color>
 
     <color name="merahJNE">#dd1c21</color>
     <color name="biruJNE">#1e3277</color>
+    <color name="putih">#FFFFFF</color>
 </resources>
