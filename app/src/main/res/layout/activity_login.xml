@@ -25,15 +25,28 @@
 
             <ImageView
                 android:id="@+id/imageView1"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/logojne" />
+
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logojne" />
+                android:text="Courier Application System"
+                android:textColor="@color/biruJNE"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/email_black"
@@ -49,13 +62,14 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:drawableLeft="@drawable/lock_black_24dp"
                     android:drawableTint="@color/merahJNE"
                     android:hint="Password"
-                    android:inputType="numberPassword"
+                    android:inputType="textPassword"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
 
