@@ -52,6 +52,7 @@
                     android:drawableLeft="@drawable/email_black"
                     android:drawableTint="@color/merahJNE"
                     android:hint="Email"
+                    android:text="JANCOK"
                     android:inputType="textEmailAddress"
                     android:singleLine="true" />
 
