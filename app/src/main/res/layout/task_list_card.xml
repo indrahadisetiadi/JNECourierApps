@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/gradient_color"
+                android:background="@drawable/blue_gradient_color"
                 android:gravity="center"
                 android:text="10 KM"
                 android:textColor="@color/putih"
@@ -46,16 +46,18 @@
                     android:maxLines="1"
                     android:padding="2dp"
                     android:text="SBY3211233442"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/design_default_color_primary"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/beratPaket"
+                    android:id="@+id/penerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
-                    android:text="10 KG" />
+                    android:text="Mbak Nur"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/alamat"
