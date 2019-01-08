@@ -7,9 +7,9 @@
         android:title="Task" />
 
     <item
-        android:id="@+id/nav_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Dashboard" />
+        android:id="@+id/nav_history"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="History" />
 
     <item
         android:id="@+id/nav_profile"

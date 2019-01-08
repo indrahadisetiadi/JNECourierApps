@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        bottomNav.setSelectedItemId(R.id.nav_dashboard);
+        bottomNav.setSelectedItemId(R.id.nav_history);
 
 
         Fragment defaultFragment = new DashboardFragment();
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new TaskFragment();
                             pos = 0;
                             break;
-                        case R.id.nav_dashboard:
+                        case R.id.nav_history:
                             selectedFragment = new DashboardFragment();
                             pos = 1;
                             break;
