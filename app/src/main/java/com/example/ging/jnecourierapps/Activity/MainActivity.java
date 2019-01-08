@@ -1,11 +1,6 @@
 package com.example.ging.jnecourierapps.Activity;
 
-import android.animation.Animator;
-import android.content.Intent;
-import android.media.session.PlaybackState;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationMenu;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -13,13 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.ging.jnecourierapps.Fragment.DashboardFragment;
+import com.example.ging.jnecourierapps.Fragment.HistoryFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileFragment;
 import com.example.ging.jnecourierapps.Fragment.TaskFragment;
 import com.example.ging.jnecourierapps.R;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        bottomNav.setSelectedItemId(R.id.nav_dashboard);
+        bottomNav.setSelectedItemId(R.id.nav_history);
 
 
-        Fragment defaultFragment = new DashboardFragment();
+        Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
     }
@@ -55,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new TaskFragment();
                             pos = 0;
                             break;
-                        case R.id.nav_dashboard:
-                            selectedFragment = new DashboardFragment();
+                        case R.id.nav_history:
+                            selectedFragment = new HistoryFragment();
                             pos = 1;
                             break;
                         case R.id.nav_profile:
