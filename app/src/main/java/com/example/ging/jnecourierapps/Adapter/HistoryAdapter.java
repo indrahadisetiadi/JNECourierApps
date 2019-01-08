@@ -11,18 +11,18 @@ import com.example.ging.jnecourierapps.R;
 
 import butterknife.ButterKnife;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder>{
 
     private Context context;
 
-    public TaskAdapter(Context context) {
+    public HistoryAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.task_list_card, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.history_list_card, viewGroup, false);
         ViewHolder holder = new ViewHolder(v);
         return holder;
     }
