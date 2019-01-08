@@ -1,11 +1,14 @@
 package com.example.ging.jnecourierapps.Fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,18 @@ public class HistoryFragment extends Fragment {
     HistoryAdapter historyAdapter;
     View viewTemp;
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i("PULLL", "PULLL");
+            }
+        });
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -35,6 +50,9 @@ public class HistoryFragment extends Fragment {
         historyList.setLayoutManager(new LinearLayoutManager(getActivity()));
         historyList.setItemAnimator(new DefaultItemAnimator());
         historyList.setAdapter(historyAdapter);
+
+
+        mySwipeRefreshLayout = view.findViewById(R.id.historyRefresh);
 
         return view;
     }

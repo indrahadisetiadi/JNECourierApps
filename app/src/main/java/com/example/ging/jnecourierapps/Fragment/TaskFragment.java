@@ -27,11 +27,16 @@ public class TaskFragment extends Fragment {
     TaskAdapter taskAdapter;
     View viewTemp;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.i("TSK", "TASK VIEW");
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i("PULLL", "PULLL TASK  ");
+            }
+        });
     }
 
 
@@ -48,6 +53,9 @@ public class TaskFragment extends Fragment {
         tasklist.setLayoutManager(new LinearLayoutManager(getActivity()));
         tasklist.setItemAnimator(new DefaultItemAnimator());
         tasklist.setAdapter(taskAdapter);
+
+        mySwipeRefreshLayout = view.findViewById(R.id.taskRefresh);
+
 
         return view;
     }
