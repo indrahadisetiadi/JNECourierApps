@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.example.ging.jnecourierapps.R;
 
 public class DashboardFragment extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
