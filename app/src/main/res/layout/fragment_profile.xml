@@ -69,6 +69,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/edit_profil"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -79,6 +80,7 @@
                 android:text="Edit Profil" />
 
             <TextView
+                android:id="@+id/hubungin_jne"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -91,6 +93,7 @@
                 android:text="Hubungi Pelayanan JNE" />
 
             <TextView
+                android:id="@+id/logout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
