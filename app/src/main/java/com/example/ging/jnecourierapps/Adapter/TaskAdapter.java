@@ -1,19 +1,26 @@
 package com.example.ging.jnecourierapps.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ging.jnecourierapps.Activity.DetailPaketActivity;
+import com.example.ging.jnecourierapps.Activity.MainActivity;
 import com.example.ging.jnecourierapps.R;
 
 import butterknife.ButterKnife;
 
+import static android.support.v4.app.ActivityCompat.startActivityForResult;
+
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
 
     private Context context;
+
 
     public TaskAdapter(Context context) {
         this.context = context;
@@ -42,6 +49,14 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent goToDetailPacket = new Intent(context, DetailPaketActivity.class);
+                    context.startActivity(goToDetailPacket);
+
+                }
+            });
         }
     }
 }
