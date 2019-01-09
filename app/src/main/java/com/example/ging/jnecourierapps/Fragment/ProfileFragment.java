@@ -40,7 +40,6 @@ public class ProfileFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("CARD VIEW","LOGOUTTTT");
                 BottomSheetDialogFragment bottomSheetDialogFragment = new ProfileLogoutBottomDialogFragment();
                 bottomSheetDialogFragment.show(getFragmentManager(),bottomSheetDialogFragment.getTag());
             }
