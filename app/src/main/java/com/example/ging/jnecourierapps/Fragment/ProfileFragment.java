@@ -1,5 +1,6 @@
 package com.example.ging.jnecourierapps.Fragment;
 
+
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
@@ -7,10 +8,12 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.ging.jnecourierapps.R;
 import com.example.ging.jnecourierapps.ProfileLogoutBottomDialogFragment;
 import com.example.ging.jnecourierapps.RatingBottomDialogFragment;
 import com.example.ging.jnecourierapps.StatistikBottomDialogFragment;
+
 public class ProfileFragment extends Fragment {
 
     View view;
@@ -18,13 +21,15 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+
+        view = inflater.inflate(R.layout.fragment_profile, container, false);
+        return view;
     }
 
 
     @Override
     public void onStart() {
-        CardView logout = view.findViewById(R.id.logout);
+        CardView logout = view.findViewById(R.id.logout_akun);
         CardView rating = view.findViewById(R.id.rating);
         CardView statistik = view.findViewById(R.id.statistik_paket);
 
@@ -57,3 +62,4 @@ public class ProfileFragment extends Fragment {
 
     }
 }
+
