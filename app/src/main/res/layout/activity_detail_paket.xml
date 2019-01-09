@@ -230,7 +230,7 @@
                         android:text="Tujuan" />
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/detailAlamat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -266,7 +266,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/failed"
-            android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+            android:drawableLeft="@drawable/ic_cancel_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:text="Gagal"
@@ -284,11 +284,11 @@
             android:textColor="@color/putih" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/navigasiMaps"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/biruJNE"
-            android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+            android:drawableLeft="@drawable/ic_directions_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:text="Navigasi"
