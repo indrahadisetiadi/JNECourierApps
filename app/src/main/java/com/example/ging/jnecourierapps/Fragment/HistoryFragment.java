@@ -2,6 +2,7 @@ package com.example.ging.jnecourierapps.Fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.ging.jnecourierapps.Adapter.HistoryAdapter;
 import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
@@ -32,6 +34,22 @@ public class HistoryFragment extends Fragment {
             @Override
             public void onRefresh() {
                 Log.i("PULLL", "PULLL");
+
+                final Toast toast = Toast.makeText(getActivity(), "Updating...", Toast.LENGTH_LONG);
+                toast.show();
+
+
+                final Handler delay = new Handler();
+                delay.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i("PULL TIME", "1000ms");
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        toast.cancel();
+                    }
+                }, 4000);
+
+
             }
         });
     }

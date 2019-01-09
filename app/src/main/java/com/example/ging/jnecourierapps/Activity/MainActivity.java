@@ -33,8 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Integer pos = 1;
     Integer currPos = 1;
     Integer tempPos = 5;
-
-
+    
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
