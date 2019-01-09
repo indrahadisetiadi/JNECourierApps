@@ -8,4 +8,7 @@
     <color name="efekmerah">#ff0007</color>
     <color name="biruJNE">#1e3277</color>
     <color name="putih">#FFFFFF</color>
+
+    <color name="success">#2ecc71</color>
+    <color name="failed">#e74c3c</color>
 </resources>
