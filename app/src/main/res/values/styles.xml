@@ -11,4 +11,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlActivated">@color/biruJNE</item>
+    </style>
+
 </resources>

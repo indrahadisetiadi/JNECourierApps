@@ -14,9 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MainActivity" />
         <activity
-            android:name=".Activity.LoginActivity"
+            android:name=".Activity.SplashScreen"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,12 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.DetailPaketActivity"
-            android:parentActivityName=".Activity.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activity.MainActivity"/>
-        </activity>
+        <activity android:name=".Activity.LoginActivity"></activity>
+        <activity android:name=".Activity.MainActivity"></activity>
     </application>
 
 </manifest>

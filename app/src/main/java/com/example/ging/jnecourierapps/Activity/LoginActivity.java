@@ -92,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.error));
+        imageView.setImageDrawable(getDrawable(R.drawable.success));
         layout.addView(imageView);
 
         //error text
