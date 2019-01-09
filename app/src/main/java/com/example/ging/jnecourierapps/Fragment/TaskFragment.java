@@ -1,8 +1,10 @@
 package com.example.ging.jnecourierapps.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -15,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.ging.jnecourierapps.Activity.LoginActivity;
+import com.example.ging.jnecourierapps.Activity.MainActivity;
 import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
 import com.example.ging.jnecourierapps.R;
 
@@ -27,14 +31,31 @@ public class TaskFragment extends Fragment {
     TaskAdapter taskAdapter;
     View viewTemp;
 
-
     @Override
     public void onStart() {
         super.onStart();
         mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+
+                final Toast toast = Toast.makeText(getActivity(), "Updating...", Toast.LENGTH_LONG);
+                toast.show();
+
                 Log.i("PULLL", "PULLL TASK  ");
+
+
+
+                final Handler delay = new Handler();
+                delay.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i("PULL TIME", "1000ms");
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        toast.cancel();
+                    }
+                }, 4000);
+
+
             }
         });
     }
