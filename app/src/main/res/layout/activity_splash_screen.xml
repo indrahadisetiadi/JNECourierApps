@@ -10,7 +10,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/maskotjne"
+        app:srcCompat="@drawable/posindonesia"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="154dp" />
 </android.support.constraint.ConstraintLayout>
