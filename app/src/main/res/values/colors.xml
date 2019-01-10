@@ -6,9 +6,9 @@
     <color name="posindonesia">#e66e12</color>
     <color name="merahJNE">#b20004</color>
     <color name="efekmerah">#ff0007</color>
-    <color name="biruJNE">#1e3277</color>
+    <color name="biruJNE">#ff5722</color>
     <color name="putih">#FFFFFF</color>
 
-    <color name="success">#2ecc71</color>
-    <color name="failed">#e74c3c</color>
+    <color name="success">#009624</color>
+    <color name="failed">#ac0800</color>
 </resources>
