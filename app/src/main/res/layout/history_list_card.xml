@@ -14,7 +14,6 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
-        android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="4dp">
 
@@ -121,7 +120,6 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
-        android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="4dp">
 

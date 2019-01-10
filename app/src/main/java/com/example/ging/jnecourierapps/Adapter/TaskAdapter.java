@@ -54,7 +54,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
                 public void onClick(View view) {
                     Intent goToDetailPacket = new Intent(context, DetailPaketActivity.class);
                     context.startActivity(goToDetailPacket);
-
                 }
             });
         }
