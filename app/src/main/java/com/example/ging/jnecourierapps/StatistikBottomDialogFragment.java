@@ -25,10 +25,14 @@ import java.util.ArrayList;
 public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
 
     Button rating_tutup;
-    PieChart pieChart;
+    String[] x_values = {"Sukses", "Gagal", "Pending"};
+    PieChart mChart;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottomsheet_profile_statistik, container, false);
+//        setPieChart();
         rating_tutup = view.findViewById(R.id.statistik_tutup);
         rating_tutup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,20 +40,6 @@ public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
                 StatistikBottomDialogFragment.this.dismiss();
             }
         });
-        //piechart
-        pieChart = pieChart.findViewById(R.id.pie_chart);
-        pieChart.setUsePercentValues(true);
-        ArrayList <PieEntry> y_values = new ArrayList<>();
-        y_values.add(new PieEntry(8f, 0));
-        y_values.add(new PieEntry(15f, 1));
-        y_values.add(new PieEntry(12f, 2));
-        y_values.add(new PieEntry(25f, 3));
-        y_values.add(new PieEntry(23f, 4));
-        y_values.add(new PieEntry(17f, 5));
-        PieDataSet dataSet = new PieDataSet(y_values,"Election Results");
-        PieData data = new PieData(dataSet);
-        pieChart.setData(data);
-        pieChart.invalidate();
         return view;
     }
 
