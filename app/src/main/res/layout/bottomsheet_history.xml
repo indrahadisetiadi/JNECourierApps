@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -31,6 +32,17 @@
                     android:layout_margin="8dp"
                     android:orientation="vertical"
                     android:padding="4dp">
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/success"
+                        android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+                        android:drawablePadding="4dp"
+                        android:drawableTint="@color/putih"
+                        android:text="Berhasil"
+                        android:textColor="@color/putih" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -245,6 +257,16 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="8dp"
                         android:background="#efefef" />
+
+                    <Button
+                        android:id="@+id/button7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/failed"
+                        android:drawableTint="@color/putih"
+                        android:text="Tutup"
+                        android:layout_gravity="center"
+                        android:textColor="@color/putih" />
 
 
                 </LinearLayout>
