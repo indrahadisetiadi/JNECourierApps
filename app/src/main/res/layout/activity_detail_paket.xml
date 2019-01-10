@@ -23,14 +23,14 @@
             android:layout_height="match_parent">
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/floatingActionButton2"
+                android:id="@+id/openCamera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
                 android:layout_margin="16dp"
                 android:clickable="true"
-                android:tint="@android:color/secondary_text_dark"
-                app:backgroundTint="#efefef"
+                android:tint="@color/biruJNE"
+                app:backgroundTint="@color/putih"
                 app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
 
             <ScrollView
@@ -258,6 +258,13 @@
                         android:layout_marginTop="8dp"
                         android:background="#efefef" />
 
+                    <ImageView
+                        android:id="@+id/imagePlaceholder"
+                        android:foregroundGravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:scaleType="centerCrop"
+                        android:layout_height="200dp" />
 
                 </LinearLayout>
             </ScrollView>
@@ -291,7 +298,7 @@
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/success"
+            android:backgroundTint="@color/biruJNE"
             android:drawableLeft="@drawable/ic_check_circle_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
@@ -302,12 +309,12 @@
             android:id="@+id/navigasiMaps"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/biruJNE"
+            android:backgroundTint="@color/putih"
             android:drawableLeft="@drawable/ic_directions_black_24dp"
             android:drawablePadding="4dp"
-            android:drawableTint="@color/putih"
+            android:drawableTint="@color/biruJNE"
             android:text="Navigasi"
-            android:textColor="@color/putih"
+            android:textColor="@color/biruJNE"
 
             />
 

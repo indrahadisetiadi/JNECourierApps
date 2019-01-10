@@ -4,11 +4,11 @@
     <color name="colorPrimaryDark">#e66e12</color>
     <color name="colorAccent">#d32f2f</color>
     <color name="posindonesia">#e66e12</color>
-    <color name="merahJNE">#b20004</color>
+    <color name="merahJNE">#d32f2f</color>
     <color name="efekmerah">#ff0007</color>
     <color name="biruJNE">#ff5722</color>
     <color name="putih">#FFFFFF</color>
 
     <color name="success">#009624</color>
-    <color name="failed">#ac0800</color>
+    <color name="failed">#c62828</color>
 </resources>

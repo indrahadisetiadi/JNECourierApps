@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.View;
 
+import com.example.ging.jnecourierapps.R;
+
 public class RatingBottomDialogFragment extends BottomSheetDialogFragment {
     @Override
 

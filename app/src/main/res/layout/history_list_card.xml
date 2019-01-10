@@ -26,7 +26,7 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/red_gradient_color" />
+                android:background="@drawable/green_gradient_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -82,7 +82,6 @@
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="RESI2192013JKL"
-                    android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
 
                 <TextView
@@ -132,7 +131,7 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/green_gradient_color" />
+                android:background="@drawable/orange_gradient_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,7 +189,6 @@
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="RESI2192013JKL"
-                    android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
 
                 <TextView
@@ -212,9 +210,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Sukses"
-                    android:textColor="@color/success"
-                    android:textStyle="bold" />
+                    android:text="Sukses" />
             </LinearLayout>
 
         </LinearLayout>
