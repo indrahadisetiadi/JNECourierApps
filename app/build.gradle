@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.ging.jnecourierapps"
