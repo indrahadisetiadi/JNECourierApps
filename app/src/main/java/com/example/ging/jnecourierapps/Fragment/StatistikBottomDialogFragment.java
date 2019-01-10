@@ -1,4 +1,4 @@
-package com.example.ging.jnecourierapps;
+package com.example.ging.jnecourierapps.Fragment;
 
 import android.app.Dialog;
 import android.support.design.widget.BottomSheetDialogFragment;

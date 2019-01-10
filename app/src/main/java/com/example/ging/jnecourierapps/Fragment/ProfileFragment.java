@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ging.jnecourierapps.R;
-import com.example.ging.jnecourierapps.ProfileLogoutBottomDialogFragment;
-import com.example.ging.jnecourierapps.RatingBottomDialogFragment;
-import com.example.ging.jnecourierapps.StatistikBottomDialogFragment;
 
 public class ProfileFragment extends Fragment {
 
