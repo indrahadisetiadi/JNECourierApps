@@ -29,7 +29,8 @@
                 android:layout_gravity="bottom|end"
                 android:layout_margin="16dp"
                 android:clickable="true"
-                android:tint="@color/putih"
+                android:tint="@android:color/secondary_text_dark"
+                app:backgroundTint="#efefef"
                 app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
 
             <ScrollView
