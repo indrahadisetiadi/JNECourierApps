@@ -14,11 +14,11 @@
             android:id="@+id/Konfirmasi "
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:text="Konfirmasi"
             android:textAlignment="center"
-            android:textColor="@color/merahJNE"
+            android:textColor="@color/posindonesia"
             android:textSize="27sp"
-            android:layout_margin="20dp"
             android:textStyle="bold" />
 
         <TextView
@@ -28,9 +28,9 @@
             android:layout_marginBottom="10dp"
             android:text="Anda akan mengakhiri sesi ini ?"
             android:textAlignment="center"
-            android:textColor="@color/biruJNE"
-            android:textStyle="bold"
-            android:textSize="15sp"/>
+            android:textColor="@color/posindonesia"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,24 +38,24 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/logout_iya"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Iya"
-                android:textColor="#fff"
                 android:layout_margin="10dp"
-                android:background="@color/biruJNE"/>
+                android:layout_weight="1"
+                android:background="@color/success"
+                android:text="Iya"
+                android:textColor="#fff" />
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/logout_tidak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#fff"
                 android:layout_margin="10dp"
-                android:background="@color/merahJNE"
-                android:text="Tidak" />
+                android:layout_weight="1"
+                android:background="@color/failed"
+                android:text="Tidak"
+                android:textColor="#fff" />
         </LinearLayout>
     </LinearLayout>
 

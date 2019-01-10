@@ -16,7 +16,7 @@
             android:layout_margin="20dp"
             android:text="Rating"
             android:textAlignment="center"
-            android:textColor="@color/merahJNE"
+            android:textColor="@color/posindonesia"
             android:textSize="27sp"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:layout_height="22dp"
             android:layout_gravity="center"
             android:layout_margin="20dp"
-            android:background="@color/biruJNE"
+            android:background="@color/posindonesia"
             android:text="Baik, Performa bagus"
             android:textColor="#fff"
             android:textStyle="bold|italic" />
@@ -48,12 +48,12 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/rating_tutup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@color/merahJNE"
+                android:background="@color/failed"
                 android:text="Tutup"
                 android:textColor="#fff" />
         </LinearLayout>
