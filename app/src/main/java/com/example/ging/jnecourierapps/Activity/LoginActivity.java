@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //jika form ada yang belum diisi
                 if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Email.getText().toString())){
                     form_validation_error("Email dan password harap diisi.");
                 }
