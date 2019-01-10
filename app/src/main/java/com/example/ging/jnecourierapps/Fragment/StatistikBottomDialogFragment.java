@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.View;
 
+import com.example.ging.jnecourierapps.R;
+
 public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
     @Override
     public void setupDialog(final Dialog dialog, int style) {
