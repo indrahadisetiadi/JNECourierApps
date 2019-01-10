@@ -29,7 +29,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onStart() {
-        CardView logout = view.findViewById(R.id.logout);
+        CardView logout = view.findViewById(R.id.logout_akun);
         CardView rating = view.findViewById(R.id.rating);
         CardView statistik = view.findViewById(R.id.statistik_paket);
 
@@ -62,3 +62,4 @@ public class ProfileFragment extends Fragment {
 
     }
 }
+

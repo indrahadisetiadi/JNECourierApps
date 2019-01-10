@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/biruJNE"
+    android:background="@color/posindonesia"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
@@ -26,9 +26,9 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="136dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logojne" />
+                android:src="@drawable/posindonesia" />
 
             <TextView
                 android:id="@+id/textView"
@@ -38,7 +38,7 @@
                 android:text="Courier Application System"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@color/biruJNE"
+                android:textColor="@color/posindonesia"
                 android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
@@ -50,8 +50,9 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/email_black"
-                    android:drawableTint="@color/merahJNE"
+                    android:drawableTint="@color/posindonesia"
                     android:hint="Email"
+                    android:textColor="@color/posindonesia"
                     android:inputType="textEmailAddress"
                     android:singleLine="true" />
 
@@ -67,8 +68,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:drawableLeft="@drawable/lock_black_24dp"
-                    android:drawableTint="@color/merahJNE"
+                    android:drawableTint="@color/posindonesia"
                     android:hint="Password"
+                    android:textColor="@color/posindonesia"
                     android:inputType="textPassword"
                     android:singleLine="true" />
             </android.support.design.widget.TextInputLayout>
