@@ -22,7 +22,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/header_cover_image"
-                    android:background="@drawable/blue_gradient_color"
+                    android:background="@color/posindonesia"
                     android:elevation="4dp"
                     android:paddingBottom="24dp">
 
@@ -55,7 +55,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/jne_gambar" />
+                    android:src="@drawable/posindowall" />
 
                 <ImageButton
                     android:id="@+id/user_profile_photo"
@@ -97,7 +97,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/merahJNE"
+                            android:background="@color/posindonesia"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -147,14 +147,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/merahJNE"
+                            android:background="@color/posindonesia"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="130dp"
-                                android:background="@color/biruJNE"
+                                android:background="@color/posindonesia"
                                 android:gravity="center">
 
                                 <ImageView
@@ -205,7 +205,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/merahJNE"
+                            android:background="@color/posindonesia"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -255,14 +255,15 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@color/merahJNE"
+                            android:background="@color/posindonesia"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="130dp"
-                                android:background="@color/biruJNE"
+                                android:background="#fff"
+                                android:tint="@color/posindonesia"
                                 android:gravity="center">
 
                                 <ImageView
