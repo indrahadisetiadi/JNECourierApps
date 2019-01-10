@@ -1,6 +1,5 @@
 package com.example.ging.jnecourierapps;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.bottomsheet_profile_rating, container, false);
+        View view = inflater.inflate(R.layout.bottomsheet_profile_statistik, container, false);
         rating_tutup = view.findViewById(R.id.statistik_tutup);
 
         rating_tutup.setOnClickListener(new View.OnClickListener() {
@@ -26,3 +25,4 @@ public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
 
         return view;
     }
+}
