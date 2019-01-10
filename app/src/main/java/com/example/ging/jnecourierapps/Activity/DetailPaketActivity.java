@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.example.ging.jnecourierapps.R;
 
 import butterknife.BindView;
@@ -24,6 +25,7 @@ import butterknife.ButterKnife;
 public class DetailPaketActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 20;
+    ImagePopup imagePopup;
     public @BindView(R.id.navigasiMaps) Button googleMaps;
     public @BindView(R.id.openCamera) FloatingActionButton openCamera;
     public @BindView(R.id.imagePlaceholder) ImageView imagePlaceholder;
@@ -35,6 +37,7 @@ public class DetailPaketActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_paket);
         ButterKnife.bind(this);
 
+        imagePopup = new ImagePopup(this);
         googleMaps = this.findViewById(R.id.navigasiMaps);
         openCamera = this.findViewById(R.id.openCamera);
         TextView alamat = this.findViewById(R.id.detailAlamat);
@@ -49,7 +52,7 @@ public class DetailPaketActivity extends AppCompatActivity {
             imagePlaceholder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                imagePopup.viewPopup();
             }
         });
     };
@@ -68,10 +71,13 @@ public class DetailPaketActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if(this.CAMERA_REQUEST == requestCode && resultCode == RESULT_OK){
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
             imagePlaceholder.setImageBitmap(bitmap);
+            imagePopup.initiatePopup(imagePlaceholder.getDrawable());
         }
+
     }
 
 
