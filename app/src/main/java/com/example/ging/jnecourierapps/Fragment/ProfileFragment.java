@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ging.jnecourierapps.KendaraanBottomDialogFragment;
 import com.example.ging.jnecourierapps.R;
 
 public class ProfileFragment extends Fragment {
@@ -28,6 +29,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         CardView logout = view.findViewById(R.id.logout_akun);
         CardView rating = view.findViewById(R.id.rating);
+        CardView kendaraan = view.findViewById(R.id.kendaraan);
         CardView statistik = view.findViewById(R.id.statistik_paket);
 
         super.onStart();
@@ -53,6 +55,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v){
                 BottomSheetDialogFragment bottomSheetDialogFragment = new StatistikBottomDialogFragment();
+                bottomSheetDialogFragment.show(getFragmentManager(),bottomSheetDialogFragment.getTag());
+            }
+        });
+
+        super.onStart();
+        kendaraan.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                BottomSheetDialogFragment bottomSheetDialogFragment = new KendaraanBottomDialogFragment();
                 bottomSheetDialogFragment.show(getFragmentManager(),bottomSheetDialogFragment.getTag());
             }
         });

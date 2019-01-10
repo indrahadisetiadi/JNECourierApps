@@ -12,7 +12,7 @@
     </style>
 
     <style name="RatingBar" parent="Theme.AppCompat">
-        <item name="colorControlActivated">@color/biruJNE</item>
+        <item name="colorControlActivated">@color/posindonesia</item>
     </style>
 
 </resources>

@@ -11,25 +11,46 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/Konfirmasi "
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:text="Konfirmasi"
+            android:text="Kendaraan"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
             android:textSize="27sp"
             android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/ratingBar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:numStars="5"
+            android:rating="5"
+            android:tint="@color/posindonesia"
+            android:background="@drawable/motor"
+            android:stepSize="1.0" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@color/posindonesia"
+            android:text="B 6991 WKW"
+            android:textColor="#fff"
+            android:textStyle="bold|italic" />
+
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/nama_motor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Anda akan mengakhiri sesi ini ?"
+            android:text="Honda Beat FI 2014"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -38,23 +59,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/logout_iya"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@color/success"
-                android:text="Iya"
-                android:textColor="#fff" />
-
-            <Button
-                android:id="@+id/logout_tidak"
+                android:id="@+id/kendaraan_tutup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@color/failed"
-                android:text="Tidak"
+                android:text="Tutup"
                 android:textColor="#fff" />
         </LinearLayout>
     </LinearLayout>
