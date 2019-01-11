@@ -1,16 +1,12 @@
 package com.example.ging.jnecourierapps.Activity;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,6 +22,7 @@ public class DetailPaketActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 20;
     ImagePopup imagePopup;
+    boolean isImageNotNull = (imagePopup != null);
     public @BindView(R.id.navigasiMaps) Button googleMaps;
     public @BindView(R.id.openCamera) FloatingActionButton openCamera;
     public @BindView(R.id.imagePlaceholder) ImageView imagePlaceholder;
@@ -49,12 +46,14 @@ public class DetailPaketActivity extends AppCompatActivity {
     }
 
     protected void scaleImage(){
+        if(isImageNotNull) {
             imagePlaceholder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imagePopup.viewPopup();
-            }
-        });
+                @Override
+                public void onClick(View view) {
+                    imagePopup.viewPopup();
+                }
+            });
+        }
     };
 
     protected void openCameraButton(){
@@ -71,13 +70,11 @@ public class DetailPaketActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if(this.CAMERA_REQUEST == requestCode && resultCode == RESULT_OK){
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
             imagePlaceholder.setImageBitmap(bitmap);
             imagePopup.initiatePopup(imagePlaceholder.getDrawable());
         }
-
     }
 
 

@@ -4,8 +4,10 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.example.ging.jnecourierapps.Activity.MainActivity;
+import com.example.ging.jnecourierapps.HistoryGagalBottomDialog;
 import com.example.ging.jnecourierapps.R;
 
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +24,6 @@ import butterknife.ButterKnife;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private Context mContext;
     CardView history_card, history_card_1;
-    Button tutup_history_berhasil, tutup_history_gagal;
 
     public HistoryAdapter(Context mContext) {
         this.mContext = mContext;
@@ -58,6 +59,16 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
                 BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialog();
                 bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
+                }
+            });
+
+            history_card_1 = itemView.findViewById(R.id.history_card_1);
+            history_card_1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
+                    BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialog();
+                    bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 }
             });
         }
