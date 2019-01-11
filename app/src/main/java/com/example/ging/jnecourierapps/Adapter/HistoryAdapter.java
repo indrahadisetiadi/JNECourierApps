@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.ging.jnecourierapps.HistoryBottomDialog;
 
@@ -20,7 +21,8 @@ import butterknife.ButterKnife;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
     private Context mContext;
-    CardView history_card;
+    CardView history_card, history_card_1;
+    Button tutup_history_berhasil, tutup_history_gagal;
 
     public HistoryAdapter(Context mContext) {
         this.mContext = mContext;

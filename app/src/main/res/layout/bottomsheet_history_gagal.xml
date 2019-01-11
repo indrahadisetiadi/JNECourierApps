@@ -37,11 +37,11 @@
                         android:id="@+id/button5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:backgroundTint="@color/success"
-                        android:drawableLeft="@drawable/ic_check_circle_black_24dp"
+                        android:backgroundTint="@color/failed"
+                        android:drawableLeft="@drawable/ic_cancel_black_24dp"
                         android:drawablePadding="4dp"
                         android:drawableTint="@color/putih"
-                        android:text="Berhasil"
+                        android:text="Gagal"
                         android:textColor="@color/putih" />
 
                     <TextView
@@ -265,7 +265,7 @@
                         android:orientation="horizontal">
 
                         <Button
-                            android:id="@+id/history_foto_lihat"
+                            android:id="@+id/button13"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/biruJNE"
@@ -274,7 +274,7 @@
                             android:textColor="@color/putih" />
 
                         <Button
-                            android:id="@+id/tutup_history_berhasil"
+                            android:id="@+id/tutup_history_gagal"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/failed"
