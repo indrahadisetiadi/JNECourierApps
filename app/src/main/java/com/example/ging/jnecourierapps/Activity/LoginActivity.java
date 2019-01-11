@@ -2,6 +2,7 @@ package com.example.ging.jnecourierapps.Activity;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -53,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(20,20,20,20);
 
-        //progress bar
+        //progressbar
         ProgressBar progressBar = new ProgressBar(LoginActivity.this, null, android.R.attr.progressBarStyleLarge);
         layout.addView(progressBar);
 
@@ -65,17 +66,15 @@ public class LoginActivity extends AppCompatActivity {
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
 
         final Handler delay = new Handler();
         delay.postDelayed(new Runnable() {
             @Override
             public void run() {
-                alertDialog.hide();
+                bottomSheetDialog.hide();
                 login_berhasil();
                 Intent goToActivity = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(goToActivity);
@@ -91,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.success));
+        imageView.setImageDrawable(getDrawable(R.drawable.fail));
         layout.addView(imageView);
 
         //error text
@@ -102,12 +101,16 @@ public class LoginActivity extends AppCompatActivity {
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
-
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
+        final Handler delay = new Handler();
+        delay.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bottomSheetDialog.hide();
+            }
+        }, 1000);
     }
 
     private void login_berhasil() {
@@ -128,10 +131,15 @@ public class LoginActivity extends AppCompatActivity {
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
+        final Handler delay = new Handler();
+        delay.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bottomSheetDialog.hide();
+            }
+        }, 1000);
     }
 }

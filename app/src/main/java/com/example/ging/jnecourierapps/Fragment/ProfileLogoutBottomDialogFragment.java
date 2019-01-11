@@ -1,4 +1,4 @@
-package com.example.ging.jnecourierapps;
+package com.example.ging.jnecourierapps.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.example.ging.jnecourierapps.R;
 
 public class ProfileLogoutBottomDialogFragment extends BottomSheetDialogFragment {
 

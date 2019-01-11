@@ -7,21 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class StatistikBottomDialogFragment extends BottomSheetDialogFragment {
-
-    Button rating_tutup;
-
+public class HistoryFotoBottomDialog  extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.bottomsheet_profile_statistik, container, false);
-        rating_tutup = view.findViewById(R.id.statistik_tutup);
-        rating_tutup.setOnClickListener(new View.OnClickListener() {
+        Button tutup_history_foto;
+        View view = inflater.inflate(R.layout.bottomsheet_history_foto, container, false);
+        tutup_history_foto = view.findViewById(R.id.tutup_history_foto);
+        tutup_history_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StatistikBottomDialogFragment.this.dismiss();
+                HistoryFotoBottomDialog.this.dismiss();
             }
         });
         return view;
     }
-
 }

@@ -82,7 +82,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/login_box_layout">
 
             <TextView
                 android:id="@+id/textView2"
@@ -100,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="@color/failed"
+                android:background="@drawable/fail_button_layout"
                 android:text="Tutup"
                 android:textColor="#fff" />
 
