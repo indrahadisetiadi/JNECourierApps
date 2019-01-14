@@ -76,15 +76,16 @@
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/login_action"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
                 android:background="@drawable/default_layout"
-                android:text="Login"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+
         </LinearLayout>
     </RelativeLayout>
 

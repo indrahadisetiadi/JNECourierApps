@@ -8,10 +8,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 public class HistoryGagalBottomDialog extends BottomSheetDialogFragment {
+    Button tutup_history_gagal;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Button tutup_history_gagal;
-        View view = inflater.inflate(R.layout.bottomsheet_history, container, false);
+        View view = inflater.inflate(R.layout.bottomsheet_history_gagal, container, false);
         tutup_history_gagal = view.findViewById(R.id.tutup_history_gagal);
         tutup_history_gagal.setOnClickListener(new View.OnClickListener() {
             @Override
