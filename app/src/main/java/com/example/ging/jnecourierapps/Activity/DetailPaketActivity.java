@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 public class DetailPaketActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 20;
     ImagePopup imagePopup;
-    boolean isImageNotNull = (imagePopup != null);
     public @BindView(R.id.navigasiMaps) Button googleMaps;
     public @BindView(R.id.openCamera) FloatingActionButton openCamera;
     public @BindView(R.id.imagePlaceholder) ImageView imagePlaceholder;
@@ -36,17 +35,14 @@ public class DetailPaketActivity extends AppCompatActivity {
         final String tujuan = alamat.getText().toString();
         googleMapsButton();
         openCameraButton();
-        scaleImage();
     }
     protected void scaleImage(){
-        if(isImageNotNull) {
             imagePlaceholder.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     imagePopup.viewPopup();
                 }
             });
-        }
     };
     protected void openCameraButton(){
         openCamera.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +60,7 @@ public class DetailPaketActivity extends AppCompatActivity {
             Bitmap bitmap = (Bitmap)data.getExtras().get("data");
             imagePlaceholder.setImageBitmap(bitmap);
             imagePopup.initiatePopup(imagePlaceholder.getDrawable());
+            scaleImage();
         }
     }
     protected void googleMapsButton(){
