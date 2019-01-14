@@ -1,6 +1,5 @@
 package com.example.ging.jnecourierapps.Activity;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,18 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-
 import com.example.ging.jnecourierapps.Fragment.HistoryFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileFragment;
 import com.example.ging.jnecourierapps.Fragment.TaskFragment;
-import com.example.ging.jnecourierapps.GPSHelper.GPSHelper;
+import com.example.ging.jnecourierapps.GPSHelper.GPSTracker;
 import com.example.ging.jnecourierapps.R;
-
-import java.io.Serializable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity{
-
-    Intent intent;
+    GPSTracker gps = new GPSTracker (this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,9 +26,15 @@ public class MainActivity extends AppCompatActivity{
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
 
-        intent = new Intent(this,GPSHelper.class);
-//        intent.putExtra("Context",Main);
-        startService(intent);
+        ScheduledExecutorService scheduleTaskExecutor = Executors.newScheduledThreadPool(5);
+        scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
+            public void run() {
+                double latitude = gps.getLatitude();
+                double longitude= gps.getLongitude();
+                Log.i("HEHEHEHE",String.valueOf(latitude));
+                Log.i("HEHEHEHE",String.valueOf(longitude));
+            }
+        }, 0, 1, TimeUnit.SECONDS);
 
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
