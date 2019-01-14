@@ -1,5 +1,6 @@
 package com.example.ging.jnecourierapps.Activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -11,11 +12,14 @@ import android.view.MenuItem;
 import com.example.ging.jnecourierapps.Fragment.HistoryFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileFragment;
 import com.example.ging.jnecourierapps.Fragment.TaskFragment;
+import com.example.ging.jnecourierapps.GPSHelper.GPSHelper;
 import com.example.ging.jnecourierapps.R;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.Serializable;
 
+public class MainActivity extends AppCompatActivity{
 
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
 
+        intent = new Intent(this,GPSHelper.class);
+//        intent.putExtra("Context",Main);
+        startService(intent);
 
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
