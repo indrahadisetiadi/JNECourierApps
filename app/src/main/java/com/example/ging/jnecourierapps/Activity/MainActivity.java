@@ -16,10 +16,17 @@ import com.example.ging.jnecourierapps.Fragment.HistoryFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileFragment;
 import com.example.ging.jnecourierapps.Fragment.TaskFragment;
 import com.example.ging.jnecourierapps.GPSHelper.GPSTracker;
+import com.example.ging.jnecourierapps.GPSHelper.SendDeviceDetails;
 import com.example.ging.jnecourierapps.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
 
 public class MainActivity extends AppCompatActivity{
     GPSTracker gps = new GPSTracker (this);
@@ -34,45 +41,24 @@ public class MainActivity extends AppCompatActivity{
         ScheduledExecutorService scheduleTaskExecutor = Executors.newScheduledThreadPool(5);
         scheduleTaskExecutor.scheduleAtFixedRate(new Runnable() {
             public void run() {
-                buildAlertMessageNoGps();
                 double latitude = gps.getLatitude();
                 double longitude= gps.getLongitude();
-                Log.i("HEHEHEHE",String.valueOf(latitude));
-                Log.i("HEHEHEHE",String.valueOf(longitude));
+                Log.i("HEHEHEHE Latitudenya ",String.valueOf(latitude));
+                Log.i("HEHEHEHE Longtitudenya ",String.valueOf(longitude));
+                JSONObject postData = new JSONObject();
+                try {
+                    postData.put("LATITUDE",latitude);
+                    postData.put("LONGTITUDE",longitude);
+                    new SendDeviceDetails().execute("https://webhook.site/cbde2e87-127f-479d-890c-463a8ad00f55", postData.toString());
+                } catch (JSONException e) {
+                    Log.i("ERROR","Gagal ngirim json");
+                }
             }
         }, 0, 1, TimeUnit.SECONDS);
 
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
-    }
-
-
-    public void statusCheck() {
-        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            buildAlertMessageNoGps();
-
-        }
-    }
-
-    private void buildAlertMessageNoGps() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your GPS seems to be disabled, do you want to enable it?")
-                .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, final int id) {
-                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(final DialogInterface dialog, final int id) {
-                        dialog.cancel();
-                    }
-                });
-        final AlertDialog alert = builder.create();
-        alert.show();
     }
 
     Integer pos = 1;
