@@ -7,13 +7,13 @@
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <RelativeLayout
+        android:id="@+id/box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
-        android:background="#fff"
-        android:elevation="4dp"
+        android:background="@drawable/login_box_layout"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -52,9 +52,9 @@
                     android:drawableLeft="@drawable/email_black"
                     android:drawableTint="@color/posindonesia"
                     android:hint="Email"
-                    android:textColor="@color/posindonesia"
                     android:inputType="textEmailAddress"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/posindonesia" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -70,21 +70,22 @@
                     android:drawableLeft="@drawable/lock_black_24dp"
                     android:drawableTint="@color/posindonesia"
                     android:hint="Password"
-                    android:textColor="@color/posindonesia"
                     android:inputType="textPassword"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/posindonesia" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/login_action"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
-                android:background="@drawable/ripple_effect"
-                android:text="Login"
+                android:background="@drawable/default_layout"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+
         </LinearLayout>
     </RelativeLayout>
 
