@@ -1,6 +1,5 @@
 package com.example.ging.jnecourierapps.Fragment;
 
-
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.Fragment;
@@ -8,7 +7,6 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.ging.jnecourierapps.KendaraanBottomDialogFragment;
 import com.example.ging.jnecourierapps.R;
 

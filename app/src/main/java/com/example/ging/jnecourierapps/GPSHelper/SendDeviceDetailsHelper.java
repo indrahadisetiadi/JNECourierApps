@@ -17,8 +17,8 @@ public class SendDeviceDetailsHelper {
             public void run() {
                 double latitude = gps.getLatitude();
                 double longitude= gps.getLongitude();
-                Log.i("HEHEHEHE Latitudenya ",String.valueOf(latitude));
-                Log.i("HEHEHEHE Longtitudenya ",String.valueOf(longitude));
+                Log.i("TEST Latitudenya ",String.valueOf(latitude));
+                Log.i("TEST Longtitudenya ",String.valueOf(longitude));
                 JSONObject postData = new JSONObject();
                 try {
                     postData.put("LATITUDE",latitude);
