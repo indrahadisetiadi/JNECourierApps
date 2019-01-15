@@ -1,4 +1,4 @@
-package com.example.ging.jnecourierapps;
+package com.example.ging.jnecourierapps.Fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class HistoryGagalBottomDialog extends BottomSheetDialogFragment {
+import com.example.ging.jnecourierapps.R;
+
+public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment {
     Button tutup_history_gagal;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -17,7 +19,7 @@ public class HistoryGagalBottomDialog extends BottomSheetDialogFragment {
         tutup_history_gagal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HistoryGagalBottomDialog.this.dismiss();
+                HistoryGagalBottomDialogFragment.this.dismiss();
             }
         });
         return view;

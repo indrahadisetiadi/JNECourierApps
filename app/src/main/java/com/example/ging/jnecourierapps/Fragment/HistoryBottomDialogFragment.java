@@ -1,4 +1,4 @@
-package com.example.ging.jnecourierapps;
+package com.example.ging.jnecourierapps.Fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialogFragment;
@@ -7,7 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-public class HistoryBottomDialog extends BottomSheetDialogFragment {
+import com.example.ging.jnecourierapps.R;
+
+public class HistoryBottomDialogFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Button tutup_history_berhasil,history_foto_lihat;
@@ -16,7 +18,7 @@ public class HistoryBottomDialog extends BottomSheetDialogFragment {
         tutup_history_berhasil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HistoryBottomDialog.this.dismiss();
+                HistoryBottomDialogFragment.this.dismiss();
             }
         });
 
@@ -24,7 +26,7 @@ public class HistoryBottomDialog extends BottomSheetDialogFragment {
         history_foto_lihat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryFotoBottomDialog();
+                BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryFotoBottomDialogFragment();
                 bottomSheetDialogFragment.show(getFragmentManager(),bottomSheetDialogFragment.getTag());
             }
         });
