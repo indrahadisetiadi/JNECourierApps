@@ -2,6 +2,8 @@ package com.example.ging.jnecourierapps.Activity;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetDialog;
@@ -22,6 +24,7 @@ import com.example.ging.jnecourierapps.R;
 public class LoginActivity extends AppCompatActivity {
     Button Login;
     EditText Email, Password;
+    Bitmap bmp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +91,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.fail);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 100,100, true);
+        imageView.setImageBitmap(bmp);
+
         layout.addView(imageView);
 
         //error text
@@ -118,7 +124,9 @@ public class LoginActivity extends AppCompatActivity {
 
         //berhasil image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.success));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.success);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 100,100, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //berhasil text

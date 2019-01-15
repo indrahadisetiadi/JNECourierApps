@@ -1,10 +1,8 @@
 package com.example.ging.jnecourierapps.Activity;
 
-
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +13,12 @@ import com.example.ging.jnecourierapps.Fragment.TaskFragment;
 import com.example.ging.jnecourierapps.GPSHelper.SendDeviceDetailsHelper;
 import com.example.ging.jnecourierapps.R;
 
-
+import im.delight.android.location.SimpleLocation;
 
 public class MainActivity extends AppCompatActivity{
+
+    private SimpleLocation location;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,20 +26,14 @@ public class MainActivity extends AppCompatActivity{
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
-        ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION );
-        ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION);
         SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
         sendDeviceDetailsHelper.SendJSON(MainActivity.this);
-        //
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
-
     }
-
     Integer pos = 1;
     Integer currPos = 1;
     Integer tempPos = 5;
-    
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
