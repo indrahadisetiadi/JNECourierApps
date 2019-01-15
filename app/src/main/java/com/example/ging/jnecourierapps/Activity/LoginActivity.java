@@ -190,8 +190,8 @@ public class LoginActivity extends AppCompatActivity {
                     openDialog();
                 }else{
                     Log.i("Error", response.body().getError());
-                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
-                    toast.show();
+//                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
+//                    toast.show();
                     form_validation_error("Username & Password Tidak Cocok Broooo");
                 }
 
