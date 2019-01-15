@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 bottomSheetDialog.hide();
             }
-        }, 1000);
+        }, 000);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -210,10 +210,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<com.example.ging.jnecourierapps.Model.Login> call, Throwable t) {
-                Log.i("errrr", t.getMessage());
-                final Toast toast = Toast.makeText(LoginActivity.this, "Koneksi error broo...", Toast.LENGTH_LONG);
-                toast.show();
-
+                form_validation_error("Koneksi dengan server error");
             }
         });
 
