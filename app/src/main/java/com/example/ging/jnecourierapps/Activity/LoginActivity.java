@@ -8,6 +8,7 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
@@ -17,29 +18,55 @@ import android.widget.TextView;
 import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.airbnb.lottie.L;
+import com.example.ging.jnecourierapps.Interfaces.LoginAPI;
+import com.example.ging.jnecourierapps.Model.Login;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
+import com.example.ging.jnecourierapps.Url.BaseUrl;
+
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
     Button Login;
-    EditText Email, Password;
+    EditText Username, Password;
+    BaseUrl baseUrl = new BaseUrl();
+    SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_login);
 
-        Email =  findViewById(R.id.email);
+        sessionManager = new SessionManager(LoginActivity.this);
+
+        if(sessionManager.isLoggedIn()){
+            Intent MainPage = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(MainPage);
+            finish();
+        }
+
+        Username =  findViewById(R.id.email);
         Password = findViewById(R.id.password);
         Login = findViewById(R.id.login_action);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Email.getText().toString())){
+                if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Username.getText().toString())){
                     form_validation_error("Email dan password harap diisi.");
                 }
                 else{
                     //jika username dan password salah
                     //form_validation_error("Email dan password salah, harap cek kembali.");
-                    openDialog();
+                    loginRequest();
+                    //openDialog();
                 }
             }
         });
@@ -111,6 +138,7 @@ public class LoginActivity extends AppCompatActivity {
         }, 1000);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void login_berhasil() {
         LinearLayout layout = new LinearLayout(LoginActivity.this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -141,4 +169,54 @@ public class LoginActivity extends AppCompatActivity {
         }, 1000);
     }
 
+
+    private void loginRequest(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).addConverterFactory(GsonConverterFactory.create()).build();
+        LoginAPI loginAPI = retrofit.create(LoginAPI.class);
+
+        Call<Login> call = loginAPI.login(Username.getText().toString(), Password.getText().toString());
+        call.enqueue(new Callback<com.example.ging.jnecourierapps.Model.Login>() {
+            @Override
+            public void onResponse(Call<com.example.ging.jnecourierapps.Model.Login> call, Response<com.example.ging.jnecourierapps.Model.Login> response) {
+
+
+                Log.i("True flag", response.message());
+                if (response.body().getError() == null){
+                    Log.i("Token", response.body().getToken());
+                    Log.i("Nama Kurir", response.body().getSuccess_login().getNama_kurir());
+                    sessionManager.setLogin(true);
+                    sessionManager.setterUserId(response.body().getSuccess_login().getId_kurir());
+                    sessionManager.setKey(response.body().getToken());
+                    openDialog();
+                }else{
+                    Log.i("Error", response.body().getError());
+//                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
+//                    toast.show();
+                    form_validation_error("Username & Password Tidak Cocok Broooo");
+                }
+
+/*
+                JSONObject jsonObject = new JSONObject();
+                if (jsonObject.has("error")){
+                    Log.i("True flag", response.message());
+                    login_berhasil();
+                }else {
+                    Log.i("False flag", response.message());
+                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
+                    toast.show();
+
+                };*/
+            }
+
+            @Override
+            public void onFailure(Call<com.example.ging.jnecourierapps.Model.Login> call, Throwable t) {
+                Log.i("errrr", t.getMessage());
+                final Toast toast = Toast.makeText(LoginActivity.this, "Koneksi error broo...", Toast.LENGTH_LONG);
+                toast.show();
+
+            }
+        });
+
+
+    }
 }

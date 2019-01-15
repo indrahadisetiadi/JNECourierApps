@@ -4,10 +4,9 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 
 import com.example.ging.jnecourierapps.Activity.MainActivity;
-import com.example.ging.jnecourierapps.HistoryGagalBottomDialog;
+import com.example.ging.jnecourierapps.Fragment.HistoryGagalBottomDialogFragment;
 import com.example.ging.jnecourierapps.R;
 
-import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -15,9 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.ging.jnecourierapps.HistoryBottomDialog;
+import com.example.ging.jnecourierapps.Fragment.HistoryBottomDialogFragment;
 
 import butterknife.ButterKnife;
 
@@ -57,7 +55,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
-                BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialog();
+                BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialogFragment();
                 bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 }
             });
@@ -67,7 +65,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
-                    BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialog();
+                    BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialogFragment();
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 }
             });
