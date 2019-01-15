@@ -1,10 +1,13 @@
 package com.example.ging.jnecourierapps.Activity;
 
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +21,10 @@ import com.example.ging.jnecourierapps.R;
 
 
 public class MainActivity extends AppCompatActivity{
+    private static final int REQUEST_CODE_PERMISSION = 1;
+    String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
+    SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +32,20 @@ public class MainActivity extends AppCompatActivity{
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
-        ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.ACCESS_FINE_LOCATION );
-        ContextCompat.checkSelfPermission( MainActivity.this, android.Manifest.permission.ACCESS_COARSE_LOCATION);
-        SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
-        sendDeviceDetailsHelper.SendJSON(MainActivity.this);
-        //
+        if(Build.VERSION.SDK_INT>= 23) {
+            if (checkSelfPermission(mPermission) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(MainActivity.this,
+                        new String[]{mPermission,
+                        },
+                        REQUEST_CODE_PERMISSION);
+                return;
+            }
+
+            else
+            {
+
+            }
+        }
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
@@ -38,7 +54,7 @@ public class MainActivity extends AppCompatActivity{
     Integer pos = 1;
     Integer currPos = 1;
     Integer tempPos = 5;
-    
+
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -50,14 +66,17 @@ public class MainActivity extends AppCompatActivity{
                         case R.id.nav_task:
                             selectedFragment = new TaskFragment();
                             pos = 0;
+                            sendDeviceDetailsHelper.SendJSON(MainActivity.this);
                             break;
                         case R.id.nav_history:
                             selectedFragment = new HistoryFragment();
                             pos = 1;
+                            sendDeviceDetailsHelper.SendJSON(MainActivity.this);
                             break;
                         case R.id.nav_profile:
                             selectedFragment = new ProfileFragment();
                             pos = 2;
+                            sendDeviceDetailsHelper.SendJSON(MainActivity.this);
                             break;
                     }
 
@@ -87,7 +106,6 @@ public class MainActivity extends AppCompatActivity{
 
                         Log.i("POS", pos.toString() + " <- " + currPos.toString() + " - " + tempPos.toString());
                         currPos = pos;
-
                     }
 
                     if (currPos == 2 && (pos == 0 || pos == 1)){
@@ -98,10 +116,8 @@ public class MainActivity extends AppCompatActivity{
                         Log.i("POS", pos.toString() + " <- " + currPos.toString() + " - " + tempPos.toString());
                         currPos = pos;
                     }
-
                     return true;
 
                 }
             };
-
 }

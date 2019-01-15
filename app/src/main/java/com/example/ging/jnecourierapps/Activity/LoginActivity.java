@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.Gravity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 import com.example.ging.jnecourierapps.R;
@@ -22,6 +24,7 @@ import com.example.ging.jnecourierapps.R;
 public class LoginActivity extends AppCompatActivity {
     Button Login;
     EditText Email, Password;
+    Bitmap bmp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +91,11 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+//        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+//        layout.addView(imageView);
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.fail);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 200,200, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //error text
@@ -118,7 +125,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //berhasil image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.success));
+//        imageView.setImageDrawable(getDrawable(R.drawable.success));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.success);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 150,150, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //berhasil text

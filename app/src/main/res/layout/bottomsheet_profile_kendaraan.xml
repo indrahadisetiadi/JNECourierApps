@@ -21,18 +21,6 @@
             android:textSize="27sp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/ratingBar"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:numStars="5"
-            android:rating="5"
-            android:tint="@color/posindonesia"
-            android:background="@drawable/motor"
-            android:stepSize="1.0" />
-
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
