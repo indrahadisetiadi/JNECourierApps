@@ -1,9 +1,6 @@
 package com.example.ging.jnecourierapps.Activity;
 
 import android.Manifest;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -12,56 +9,39 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.ging.jnecourierapps.Fragment.HistoryFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileFragment;
 import com.example.ging.jnecourierapps.Fragment.TaskFragment;
 import com.example.ging.jnecourierapps.GPSHelper.SendDeviceDetailsHelper;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 public class MainActivity extends AppCompatActivity{
-
     LocationManager lm;
     Location location;
+    public SessionManager sessionManager;
     double longitude,latitude;
     private static final int REQUEST_CODE_PERMISSION = 1;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sessionManager = new SessionManager(MainActivity.this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
         Log.i("COBA","BERHASIL");
-//        if(Build.VERSION.SDK_INT>= 23) {
-//            if (checkSelfPermission(mPermission) != PackageManager.PERMISSION_GRANTED) {
-//                ActivityCompat.requestPermissions(MainActivity.this,
-//                        new String[]{mPermission,
-//                        }, REQUEST_CODE_PERMISSION);
-//                return;
-//            }
-//
-//            else
-//            {
-//                get_location();
-//            }
-//        }
-
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
@@ -157,7 +137,7 @@ public class MainActivity extends AppCompatActivity{
                             longitude = location.getLongitude();
                             Log.i("BERHASIL LAT",String.valueOf(latitude));
                             Log.i("BERHASIL LONG",String.valueOf(longitude));
-                            sendDeviceDetailsHelper.sendJSON(MainActivity.this,latitude,longitude);
+                            sendDeviceDetailsHelper.sendJSON(MainActivity.this,latitude,longitude,sessionManager.getKey(),sessionManager.getterUserId());
                             Log.i("BERHASIL","BERHASIL");
                         }
                     }

@@ -188,6 +188,7 @@ public class LoginActivity extends AppCompatActivity {
                     sessionManager.setLogin(true);
                     sessionManager.setterUserId(response.body().getSuccess_login().getId_kurir());
                     sessionManager.setKey(response.body().getToken());
+                    Log.i("KEY", sessionManager.getKey());
                     openDialog();
                 }else{
                     Log.i("Error", response.body().getError());

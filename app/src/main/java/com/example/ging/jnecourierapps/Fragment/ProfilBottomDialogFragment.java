@@ -29,7 +29,7 @@ public class ProfilBottomDialogFragment extends BottomSheetDialogFragment {
 
         sessionManager = new SessionManager(getContext());
         nama.setText(sessionManager.getProfile().getNama_kurir());
-        nik.setText(sessionManager.getProfile().getId_kurir());
+        nik.setText(sessionManager.getKey());
         status.setText(sessionManager.getProfile().getStatus());
         kecamatan.setText(sessionManager.getProfile().getKecamatan() + " | " + sessionManager.getProfile().getKendaraan_kurir());
 

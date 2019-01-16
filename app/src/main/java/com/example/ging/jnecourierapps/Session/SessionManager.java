@@ -87,7 +87,7 @@ public class SessionManager {
         editor.commit();
     }
     public String getKey(){
-        return pref.getString("key", null);
+        return pref.getString("key", "no key");
     }
     //KEY
 
