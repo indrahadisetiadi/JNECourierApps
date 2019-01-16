@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.airbnb.lottie.L;
 import com.example.ging.jnecourierapps.Interfaces.LoginAPI;
 import com.example.ging.jnecourierapps.Model.Login;
+import com.example.ging.jnecourierapps.Model.Profile;
 import com.example.ging.jnecourierapps.R;
 import com.example.ging.jnecourierapps.Session.SessionManager;
 import com.example.ging.jnecourierapps.Url.BaseUrl;
@@ -181,6 +182,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (response.body().getError() == null){
                     Log.i("Token", response.body().getToken());
                     Log.i("Nama Kurir", response.body().getSuccess_login().getNama_kurir());
+                    Profile profile = new Profile();
+                    profile = response.body().getSuccess_login();
+                    sessionManager.setProfile(profile);
                     sessionManager.setLogin(true);
                     sessionManager.setterUserId(response.body().getSuccess_login().getId_kurir());
                     sessionManager.setKey(response.body().getToken());
