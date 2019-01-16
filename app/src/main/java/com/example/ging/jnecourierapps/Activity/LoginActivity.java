@@ -133,7 +133,7 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 bottomSheetDialog.hide();
             }
-        }, 000);
+        }, 2500);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
