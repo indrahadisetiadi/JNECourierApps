@@ -1,9 +1,12 @@
 package com.example.ging.jnecourierapps.Activity;
 
+<<<<<<< HEAD
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
+=======
+>>>>>>> hilmi3
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -18,12 +21,17 @@ import com.example.ging.jnecourierapps.Fragment.TaskFragment;
 import com.example.ging.jnecourierapps.GPSHelper.SendDeviceDetailsHelper;
 import com.example.ging.jnecourierapps.R;
 
-
+import im.delight.android.location.SimpleLocation;
 
 public class MainActivity extends AppCompatActivity{
+<<<<<<< HEAD
     private static final int REQUEST_CODE_PERMISSION = 1;
     String mPermission = Manifest.permission.ACCESS_FINE_LOCATION;
     SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
+=======
+
+    private SimpleLocation location;
+>>>>>>> hilmi3
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +40,7 @@ public class MainActivity extends AppCompatActivity{
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.nav_history);
+<<<<<<< HEAD
         if(Build.VERSION.SDK_INT>= 23) {
             if (checkSelfPermission(mPermission) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(MainActivity.this,
@@ -46,15 +55,20 @@ public class MainActivity extends AppCompatActivity{
 
             }
         }
+=======
+        SendDeviceDetailsHelper sendDeviceDetailsHelper = new SendDeviceDetailsHelper();
+        sendDeviceDetailsHelper.SendJSON(MainActivity.this);
+>>>>>>> hilmi3
         Fragment defaultFragment = new HistoryFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
-
     }
-
     Integer pos = 1;
     Integer currPos = 1;
     Integer tempPos = 5;
+<<<<<<< HEAD
 
+=======
+>>>>>>> hilmi3
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
