@@ -43,15 +43,20 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp">
 
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/email_black"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawablePadding="10dp"
                     android:drawableTint="@color/posindonesia"
-                    android:hint="Email"
+                    android:hint="Username"
                     android:inputType="textEmailAddress"
                     android:singleLine="true"
                     android:textColor="@color/posindonesia" />
@@ -67,10 +72,15 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:background="@null"
                     android:drawableLeft="@drawable/lock_black_24dp"
+                    android:drawablePadding="10dp"
                     android:drawableTint="@color/posindonesia"
                     android:hint="Password"
                     android:inputType="textPassword"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
                     android:singleLine="true"
                     android:textColor="@color/posindonesia" />
             </android.support.design.widget.TextInputLayout>
