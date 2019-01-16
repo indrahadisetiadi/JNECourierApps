@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.ging.jnecourierapps.Model.Profile;
+import com.google.gson.Gson;
 
 public class SessionManager {
 
@@ -13,6 +14,23 @@ public class SessionManager {
     SharedPreferences pref;
     private String user_id;
     private String key;
+    private Profile profile;
+
+
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+        Gson gson = new Gson();
+        String json = gson.toJson(profile);
+        editor.putString("UserProfile", json);
+        editor.commit();
+    }
+    public Profile getProfile() {
+        Gson gson = new Gson();
+        String json = pref.getString("UserProfile","");
+        profile = gson.fromJson(json, Profile.class);
+        return profile;
+    }
 
 
     SharedPreferences.Editor editor;
@@ -69,7 +87,7 @@ public class SessionManager {
         editor.commit();
     }
     public String getKey(){
-        return this.key;
+        return pref.getString("key", null);
     }
     //KEY
 

@@ -8,18 +8,27 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
 
 public class ProfileFragment extends Fragment {
 
     View view;
+    SessionManager sessionManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        sessionManager = new SessionManager(getContext());
         view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        TextView userName = view.findViewById(R.id.user_profile_name);
+
+        userName.setText(sessionManager.getProfile().getNama_kurir());
+
         return view;
     }
 
