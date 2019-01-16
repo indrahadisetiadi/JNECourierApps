@@ -71,7 +71,7 @@ public class ProfileFragment extends Fragment {
         kendaraan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                BottomSheetDialogFragment bottomSheetDialogFragment = new KendaraanBottomDialogFragment();
+                BottomSheetDialogFragment bottomSheetDialogFragment = new ProfilBottomDialogFragment();
                 bottomSheetDialogFragment.show(getFragmentManager(),bottomSheetDialogFragment.getTag());
             }
         });
