@@ -63,10 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                     form_validation_error("Email dan password harap diisi.");
                 }
                 else{
-                    //jika username dan password salah
-                    //form_validation_error("Email dan password salah, harap cek kembali.");
                     loginRequest();
-                    //openDialog();
                 }
             }
         });
@@ -135,7 +132,7 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 bottomSheetDialog.hide();
             }
-        }, 1000);
+        }, 000);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -190,30 +187,14 @@ public class LoginActivity extends AppCompatActivity {
                     openDialog();
                 }else{
                     Log.i("Error", response.body().getError());
-//                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
-//                    toast.show();
                     form_validation_error("Username & Password Tidak Cocok Broooo");
                 }
 
-/*
-                JSONObject jsonObject = new JSONObject();
-                if (jsonObject.has("error")){
-                    Log.i("True flag", response.message());
-                    login_berhasil();
-                }else {
-                    Log.i("False flag", response.message());
-                    final Toast toast = Toast.makeText(LoginActivity.this, "Akun tidak terdaftar broo...", Toast.LENGTH_LONG);
-                    toast.show();
-
-                };*/
             }
 
             @Override
             public void onFailure(Call<com.example.ging.jnecourierapps.Model.Login> call, Throwable t) {
-                Log.i("errrr", t.getMessage());
-                final Toast toast = Toast.makeText(LoginActivity.this, "Koneksi error broo...", Toast.LENGTH_LONG);
-                toast.show();
-
+                form_validation_error("Koneksi dengan server error");
             }
         });
 
