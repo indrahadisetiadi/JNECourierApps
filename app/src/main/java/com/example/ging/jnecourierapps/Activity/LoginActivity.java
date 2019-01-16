@@ -2,6 +2,8 @@ package com.example.ging.jnecourierapps.Activity;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetDialog;
@@ -41,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText Username, Password;
     BaseUrl baseUrl = new BaseUrl();
     SessionManager sessionManager;
+    Bitmap bmp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,7 +116,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+//        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.fail);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 200,200, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //error text
@@ -144,7 +150,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //berhasil image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.success));
+//        imageView.setImageDrawable(getDrawable(R.drawable.success));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.success);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 200,200, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //berhasil text
