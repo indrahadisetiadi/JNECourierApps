@@ -40,14 +40,14 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        bottomNav.setSelectedItemId(R.id.nav_history);
+        bottomNav.setSelectedItemId(R.id.nav_task);
         Log.i("COBA","BERHASIL");
-        Fragment defaultFragment = new HistoryFragment();
+        Fragment defaultFragment = new TaskFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, defaultFragment).commit();
 
     }
-    Integer pos = 1;
-    Integer currPos = 1;
+    Integer pos = 0;
+    Integer currPos = 0;
     Integer tempPos = 5;
     
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

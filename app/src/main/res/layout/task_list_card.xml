@@ -29,6 +29,14 @@
                 android:layout_weight="1"
                 android:background="@drawable/orange_gradient_color" />
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_move_to_inbox_black_24dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
