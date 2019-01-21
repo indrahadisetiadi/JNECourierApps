@@ -112,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="1.2 Km"
+                    android:text="1.2 Km - Dago"
                     android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
             </LinearLayout>

@@ -72,6 +72,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Fariz Purnomo" />
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -86,7 +87,8 @@
                             android:layout_weight="2" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nomorHpPengirim"
+                            android:clickable="true"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -134,10 +136,11 @@
                             android:layout_weight="2" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nomorHpPenerima"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:clickable="true"
                             android:text="+62983291230"
                             android:textStyle="bold" />
                     </LinearLayout>

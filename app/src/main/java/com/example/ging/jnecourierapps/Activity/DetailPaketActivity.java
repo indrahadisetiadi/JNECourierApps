@@ -1,12 +1,17 @@
 package com.example.ging.jnecourierapps.Activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -22,6 +27,10 @@ public class DetailPaketActivity extends AppCompatActivity {
     public @BindView(R.id.navigasiMaps) Button googleMaps;
     public @BindView(R.id.openCamera) FloatingActionButton openCamera;
     public @BindView(R.id.imagePlaceholder) ImageView imagePlaceholder;
+    public @BindView(R.id.nomorHpPengirim) TextView nomorhppengirim;
+    public @BindView(R.id.nomorHpPenerima) TextView nomorhppenerima;
+
+
     String tujuan = new String();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +44,37 @@ public class DetailPaketActivity extends AppCompatActivity {
         final String tujuan = alamat.getText().toString();
         googleMapsButton();
         openCameraButton();
+
+        if (ContextCompat.checkSelfPermission(DetailPaketActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(DetailPaketActivity.this, new String[]{Manifest.permission.CALL_PHONE},1);
+        }
+
+        nomorhppengirim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("PHONE KIRIM", nomorhppengirim.getText().toString());
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:"+nomorhppengirim.getText().toString()));
+                startActivity(callIntent);
+
+            }
+        });
+
+        nomorhppenerima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("PHONE TERIMA", nomorhppenerima.getText().toString());
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:"+nomorhppenerima.getText().toString()));
+                startActivity(callIntent);
+            }
+        });
+
     }
+
+
+    protected void callNoHp(){}
+
     protected void scaleImage(){
             imagePlaceholder.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,4 +113,5 @@ public class DetailPaketActivity extends AppCompatActivity {
             }
         });
     }
+
 }
