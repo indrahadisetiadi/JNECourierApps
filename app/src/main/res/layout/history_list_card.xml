@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Waktu" />
+                    android:text="Jam Terima" />
 
                 <TextView
                     android:id="@+id/titleStatus"
@@ -98,7 +98,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="18:30" />
+                    android:text="-" />
 
                 <TextView
                     android:id="@+id/status"
@@ -164,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Waktu" />
+                    android:text="Jam Terima" />
 
                 <TextView
                     android:id="@+id/titleStatus"
