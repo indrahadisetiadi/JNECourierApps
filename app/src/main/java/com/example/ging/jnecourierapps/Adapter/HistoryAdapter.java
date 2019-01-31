@@ -26,10 +26,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
+    String noResi,namaPenerima;
     private Context mContext;
     CardView history_card, history_card_1;
     private List<GetHistory> getHistoryList;
-    Bundle bundle = new Bundle();
+    Bundle bundle;
 
     public HistoryAdapter(Context mContext, List<GetHistory> getHistoryList) {
         this.mContext = mContext;
@@ -65,12 +66,13 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             viewHolder.status_berhasil.setText(getHistory.getStatus_pengiriman());
             viewHolder.foto.setText(getHistory.getFoto_pengiriman());
         }
-        viewHolder.tujuan.setText(getHistory.getAlamat() + getHistory.getDesa_kelurahan() + getHistory.getPropinsi());
+        viewHolder.tujuan.setText(getHistory.getAlamat() + " , " + getHistory.getDesa_kelurahan() + " " + getHistory.getPropinsi());
         viewHolder.berat.setText(getHistory.getBerat());
         viewHolder.tanggalDikirim.setText(getHistory.getTanggal_masuk());
         viewHolder.jenisLayanan.setText(getHistory.getTipe_paket());
+        Log.i("JENIS LAYANAN",getHistory.getTipe_paket());
         viewHolder.nohpPenerima.setText(getHistory.getNo_hp_penerima());
-        viewHolder.namaPenerima.setText(getHistory.getNo_hp_pengirim());
+        viewHolder.namaPenerima.setText(getHistory.getNama_penerima());
         viewHolder.nohpPengirim.setText(getHistory.getNo_hp_pengirim());
         viewHolder.namaPengirim.setText(getHistory.getNama_pengirim());
         viewHolder.noResi.setText(getHistory.getNo_resi());
@@ -114,21 +116,22 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-            bundle.putString("noResi",noResi.toString());
-            bundle.putString("namaPengirim",namaPengirim.toString());
-            bundle.putString("nohpPengirim",nohpPengirim.toString());
-            bundle.putString("namaPenerima",namaPenerima.toString());
-            bundle.putString("nohpPenerima",nohpPenerima.toString());
-            bundle.putString("jenisLayanan",jenisLayanan.toString());
-            bundle.putString("tanggalDikirim",tanggalDikirim.toString());
-            bundle.putString("berat",berat.toString());
-            bundle.putString("tujuan",tujuan.toString());
             history_card = itemView.findViewById(R.id.history_card_gagal);
             history_card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
-                    bundle.putString("alasan_gagal",alasan_gagal.toString());
+                    bundle = new Bundle();
+                    bundle.putString("noResi",noResi.getText().toString());
+                    bundle.putString("namaPengirim",namaPengirim.getText().toString());
+                    bundle.putString("nohpPengirim",nohpPengirim.getText().toString());
+                    bundle.putString("namaPenerima",namaPenerima.getText().toString());
+                    bundle.putString("nohpPenerima",nohpPenerima.getText().toString());
+                    bundle.putString("jenisLayanan",jenisLayanan.getText().toString());
+                    bundle.putString("tanggalDikirim",tanggalDikirim.getText().toString());
+                    bundle.putString("berat",berat.getText().toString());
+                    bundle.putString("tujuan",tujuan.getText().toString());
+                    bundle.putString("alasan_gagal",alasan_gagal.getText().toString());
                     BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialogFragment();
                     bottomSheetDialogFragment.setArguments(bundle);
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
@@ -140,7 +143,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                 @Override
                 public void onClick(View view) {
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
-                    bundle.putString("foto",foto.toString());
+                    bundle = new Bundle();
+                    bundle.putString("noResi",noResi.getText().toString());
+                    bundle.putString("namaPengirim",namaPengirim.getText().toString());
+                    bundle.putString("nohpPengirim",nohpPengirim.getText().toString());
+                    bundle.putString("namaPenerima",namaPenerima.getText().toString());
+                    bundle.putString("nohpPenerima",nohpPenerima.getText().toString());
+                    bundle.putString("jenisLayanan",jenisLayanan.getText().toString());
+                    bundle.putString("tanggalDikirim",tanggalDikirim.getText().toString());
+                    bundle.putString("berat",berat.getText().toString());
+                    bundle.putString("tujuan",tujuan.getText().toString());
+                    bundle.putString("foto",foto.getText().toString());
                     BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialogFragment();
                     bottomSheetDialogFragment.setArguments(bundle);
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
