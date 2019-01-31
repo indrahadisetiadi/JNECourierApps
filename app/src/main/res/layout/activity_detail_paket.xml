@@ -264,11 +264,11 @@
 
                     <ImageView
                         android:id="@+id/imagePlaceholder"
-                        android:foregroundGravity="center"
-                        android:layout_marginTop="16dp"
                         android:layout_width="match_parent"
-                        android:scaleType="centerCrop"
-                        android:layout_height="200dp" />
+                        android:layout_height="200dp"
+                        android:layout_marginTop="16dp"
+                        android:foregroundGravity="center"
+                        android:scaleType="centerCrop" />
 
                 </LinearLayout>
             </ScrollView>
@@ -300,15 +300,15 @@
             android:textColor="@color/putih" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/berhasilBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/biruJNE"
             android:drawableLeft="@drawable/ic_check_circle_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
-            android:text="Berhasil"
             android:foreground="?android:attr/selectableItemBackground"
+            android:text="Berhasil"
             android:textColor="@color/putih" />
 
         <Button

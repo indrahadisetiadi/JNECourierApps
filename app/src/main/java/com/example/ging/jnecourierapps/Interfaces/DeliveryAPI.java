@@ -2,6 +2,7 @@ package com.example.ging.jnecourierapps.Interfaces;
 
 import com.example.ging.jnecourierapps.Model.ResponseTask;
 
+import java.io.File;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
@@ -35,7 +36,10 @@ public interface DeliveryAPI {
 
     @Multipart
     @POST("submitPaketSukses")
-    Call<ResponseBody> uploadImage(@Part MultipartBody.Part photo,
-                                   @PartMap Map<String,RequestBody> text);
+    Call<ResponseBody> submitPaketSukses(
+            @Part MultipartBody.Part foto_pengiriman,
+            @Part MultipartBody.Part id_kurir,
+            @Part MultipartBody.Part no_resi
+    );
 
 }
