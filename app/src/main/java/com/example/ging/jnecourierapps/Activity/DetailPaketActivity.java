@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,8 @@ public class DetailPaketActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 20;
     BaseUrl baseUrl = new BaseUrl();
     Bitmap theImage;
+    EditText yangnerima;
+
 
     ImagePopup imagePopup;
     public String latitude, longitude, resi;
@@ -91,6 +94,7 @@ public class DetailPaketActivity extends AppCompatActivity {
         latitude = goToDetailPacket.getStringExtra("latitude");
         longitude = goToDetailPacket.getStringExtra("longitude");
 
+        yangnerima = findViewById(R.id.yangnerima);
 
         imagePopup = new ImagePopup(this);
         googleMaps = this.findViewById(R.id.navigasiMaps);
@@ -114,13 +118,14 @@ public class DetailPaketActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.i("BERHASIL", detailResi.getText().toString());
                 Log.i("BERHASIL", sessionManager.getterUserId());
-                if (imagePlaceholder.getDrawable() == null){
+                if (imagePlaceholder.getDrawable() == null && yangnerima.getText().toString().isEmpty()){
                     Log.i("BERHASIL", "FOTO KOSONG");
-                    final Toast toast = Toast.makeText(DetailPaketActivity.this, "No Photo", Toast.LENGTH_LONG);
+                    Log.i("BERHASIL YG", yangnerima.getText().toString() + " -");
+                    final Toast toast = Toast.makeText(DetailPaketActivity.this, "No Photo & Receiver Name", Toast.LENGTH_LONG);
                     toast.show();
                 }else{
                     try {
-                        berhasil(theImage,sessionManager.getterUserId(), detailResi.getText().toString());
+                        berhasil(theImage,sessionManager.getterUserId(), detailResi.getText().toString(), yangnerima.getText().toString());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -161,7 +166,7 @@ public class DetailPaketActivity extends AppCompatActivity {
 
     protected void callNoHp(){}
 
-    protected void berhasil(Bitmap bitmap,String id_kurir,String no_resi) throws IOException {
+    protected void berhasil(Bitmap bitmap,String id_kurir,String no_resi, String penerima) throws IOException {
         final OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .connectTimeout(20, TimeUnit.SECONDS)
                 .writeTimeout(20, TimeUnit.SECONDS)
@@ -185,10 +190,11 @@ public class DetailPaketActivity extends AppCompatActivity {
         MultipartBody.Part body = MultipartBody.Part.createFormData("foto_pengiriman", "theImage", reqFile);
         MultipartBody.Part id_kurirF = MultipartBody.Part.createFormData("id_kurir", id_kurir);
         MultipartBody.Part no_resiF = MultipartBody.Part.createFormData("no_resi", no_resi);
+        MultipartBody.Part yangnerima = MultipartBody.Part.createFormData("yangnerima", penerima);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
         DeliveryAPI deliveryAPI = retrofit.create(DeliveryAPI.class);
-        Call<ResponseBody> responseBodyCall = deliveryAPI.submitPaketSukses(body, id_kurirF, no_resiF);
+        Call<ResponseBody> responseBodyCall = deliveryAPI.submitPaketSukses(body, id_kurirF, no_resiF, yangnerima);
         responseBodyCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
