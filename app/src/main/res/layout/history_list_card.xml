@@ -8,7 +8,7 @@
     android:padding="0dp">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/history_card"
+        android:id="@+id/history_card_gagal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="4dp"
@@ -79,7 +79,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/resi"
+                    android:id="@+id/resi_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
@@ -87,21 +87,21 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/penerima"
+                    android:id="@+id/penerima_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="Purnomo" />
 
                 <TextView
-                    android:id="@+id/waktu"
+                    android:id="@+id/waktu_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="-" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
@@ -114,7 +114,7 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/history_card_1"
+        android:id="@+id/history_card_berhasil"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="4dp"
@@ -185,7 +185,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/resi"
+                    android:id="@+id/resi_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
@@ -193,21 +193,21 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/penerima"
+                    android:id="@+id/penerima_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="Purnomo" />
 
                 <TextView
-                    android:id="@+id/waktu"
+                    android:id="@+id/waktu_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="18:30" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"

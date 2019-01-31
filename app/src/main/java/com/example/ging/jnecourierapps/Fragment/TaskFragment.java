@@ -61,11 +61,14 @@ public class TaskFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
         mySwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                Log.i("PULLL", "PULLL");
+                final Toast toast = Toast.makeText(getActivity(), "Updating...", Toast.LENGTH_LONG);
+                toast.show();
                 loadTask();
+                Log.i("LOAD","Lagi load brok");
             }
         });
     }

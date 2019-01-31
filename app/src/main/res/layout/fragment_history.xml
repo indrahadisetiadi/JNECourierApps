@@ -9,9 +9,22 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/historyList"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/historyProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/historyList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+    </FrameLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>
