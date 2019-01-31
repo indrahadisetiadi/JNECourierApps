@@ -44,21 +44,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="No Resi" />
+                    android:text="Receipt" />
 
                 <TextView
                     android:id="@+id/titlePenerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Penerima" />
+                    android:text="Consignee" />
 
                 <TextView
                     android:id="@+id/titleWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Jam Terima" />
+                    android:text="Time" />
 
                 <TextView
                     android:id="@+id/titleStatus"
@@ -150,21 +150,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="No Resi" />
+                    android:text="Receipt" />
 
                 <TextView
                     android:id="@+id/titlePenerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Penerima" />
+                    android:text="Consignee" />
 
                 <TextView
                     android:id="@+id/titleWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Jam Terima" />
+                    android:text="Time" />
 
                 <TextView
                     android:id="@+id/titleStatus"

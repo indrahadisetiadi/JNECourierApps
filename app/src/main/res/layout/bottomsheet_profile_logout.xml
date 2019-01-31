@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:text="Konfirmasi"
+            android:text="Confirmation"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
             android:textSize="27sp"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Anda akan mengakhiri sesi ini ?"
+            android:text="Are you sure you want to end this session?"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
             android:textSize="15sp"
@@ -45,7 +45,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/success_button_layout"
-                android:text="Iya"
+                android:text="Yes"
                 android:textColor="#fff" />
 
             <Button
@@ -55,7 +55,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/fail_button_layout"
-                android:text="Tidak"
+                android:text="Nope"
                 android:textColor="#fff" />
         </LinearLayout>
     </LinearLayout>

@@ -270,17 +270,9 @@
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/biruJNE"
                             android:drawableTint="@color/putih"
-                            android:text="Foto"
+                            android:text="Photo"
                             android:textColor="@color/putih" />
 
-                        <Button
-                            android:id="@+id/tutup_history_berhasil"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:backgroundTint="@color/failed"
-                            android:drawableTint="@color/putih"
-                            android:text="Tutup"
-                            android:textColor="@color/putih" />
                     </LinearLayout>
 
 

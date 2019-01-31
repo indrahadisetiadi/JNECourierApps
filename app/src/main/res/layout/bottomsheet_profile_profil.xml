@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:text="Profil"
+            android:text="Profile"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
             android:textSize="27sp"
@@ -59,23 +59,9 @@
             android:text="Honda Beat FI 2014"
             android:textAlignment="center"
             android:textColor="@color/posindonesia"
+            android:layout_marginBottom="30dp"
             android:textSize="12sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/kendaraan_tutup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/fail_button_layout"
-                android:text="Tutup"
-                android:textColor="#fff" />
-        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

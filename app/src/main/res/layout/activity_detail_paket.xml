@@ -322,7 +322,7 @@
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Gagal"
+            android:text="Failed"
             android:textColor="@color/putih" />
 
         <Button
@@ -334,7 +334,7 @@
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Berhasil"
+            android:text="Success"
             android:textColor="@color/putih" />
 
         <Button
@@ -345,7 +345,7 @@
             android:drawableLeft="@drawable/ic_directions_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/biruJNE"
-            android:text="Navigasi"
+            android:text="Navigation"
             android:foreground="?android:attr/selectableItemBackground"
             android:textColor="@color/biruJNE"
 
