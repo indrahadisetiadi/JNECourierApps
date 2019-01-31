@@ -1,16 +1,6 @@
 package com.example.ging.jnecourierapps.Fragment;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -23,24 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.ging.jnecourierapps.Activity.LoginActivity;
-import com.example.ging.jnecourierapps.Activity.MainActivity;
 import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
-import com.example.ging.jnecourierapps.GPSHelper.SendDeviceDetailsHelper;
 import com.example.ging.jnecourierapps.Interfaces.GetTaskAPI;
 import com.example.ging.jnecourierapps.Model.GetTask;
-import com.example.ging.jnecourierapps.Model.Response;
+import com.example.ging.jnecourierapps.Model.ResponseTask;
 import com.example.ging.jnecourierapps.R;
 import com.example.ging.jnecourierapps.Url.BaseUrl;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,15 +92,20 @@ public class TaskFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
         GetTaskAPI getTaskAPI = retrofit.create(GetTaskAPI.class);
 
-        Call<Response> responseCall = getTaskAPI.getPaket("22","-6.914744","107.609810");
-        responseCall.enqueue(new Callback<Response>() {
+        Call<ResponseTask> responseCall = getTaskAPI.getPaket("22","-6.914744","107.609810");
+        responseCall.enqueue(new Callback<ResponseTask>() {
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<ResponseTask> call, retrofit2.Response<ResponseTask> response) {
                 Log.i("TASK", response.body().getError());
+
+                taskAdapter = new TaskAdapter(getContext(),getTaskList);
+                tasklist.setAdapter(taskAdapter);
+
                 if (response.body().getError().equals("0")){
                     mySwipeRefreshLayout.setRefreshing(false);
                     toast.cancel();
                     progressBarTask.setVisibility(View.GONE);
+
                     taskAdapter = new TaskAdapter(getContext(), response.body().getMessage());
                     tasklist.setAdapter(taskAdapter);
                 }else{
@@ -128,7 +116,7 @@ public class TaskFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<ResponseTask> call, Throwable t) {
                 Log.i("TASK onFail", t.getMessage());
                 final Toast toast = Toast.makeText(getActivity(), "Try Again, Swipe to refresh", Toast.LENGTH_LONG);
                 toast.show();
