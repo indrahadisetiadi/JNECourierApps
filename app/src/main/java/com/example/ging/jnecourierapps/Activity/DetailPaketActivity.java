@@ -22,13 +22,15 @@ import com.ceylonlabs.imageviewpopup.ImagePopup;
 import com.example.ging.jnecourierapps.Fragment.GagalBottomDialogFragment;
 import com.example.ging.jnecourierapps.Fragment.ProfileLogoutBottomDialogFragment;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class DetailPaketActivity extends AppCompatActivity {
     private static final int CAMERA_REQUEST = 20;
     ImagePopup imagePopup;
-    public String latitude, longitude;
+    public String latitude, longitude, resi;
     public @BindView(R.id.navigasiMaps) Button googleMaps;
     public @BindView(R.id.openCamera) FloatingActionButton openCamera;
     public @BindView(R.id.imagePlaceholder) ImageView imagePlaceholder;
@@ -52,8 +54,9 @@ public class DetailPaketActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         TextView alamat = this.findViewById(R.id.detailAlamat);
 
-        Intent goToDetailPacket = getIntent();
-        detailResi.setText(goToDetailPacket.getStringExtra("resi"));
+        final Intent goToDetailPacket = getIntent();
+        resi = goToDetailPacket.getStringExtra("resi");
+        detailResi.setText(resi);
         namaPengirim.setText(goToDetailPacket.getStringExtra("namaPengirim"));
         nomorhppengirim.setText(goToDetailPacket.getStringExtra("hpPengirim"));
         namaPenerima.setText(goToDetailPacket.getStringExtra("namaPenerima"));
@@ -68,11 +71,16 @@ public class DetailPaketActivity extends AppCompatActivity {
         imagePopup = new ImagePopup(this);
         googleMaps = this.findViewById(R.id.navigasiMaps);
         openCamera = this.findViewById(R.id.openCamera);
+        final SessionManager sessionManager = new SessionManager(DetailPaketActivity.this);
 
         gagalBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("noresi", detailResi.getText().toString());
+                args.putString("id_kurir",sessionManager.getterUserId());
                 BottomSheetDialogFragment bottomSheetDialogFragment = new GagalBottomDialogFragment();
+                bottomSheetDialogFragment.setArguments(args);
                 bottomSheetDialogFragment.show(getSupportFragmentManager(),"hehe");
             }
         });
@@ -119,15 +127,17 @@ public class DetailPaketActivity extends AppCompatActivity {
                 }
             });
     };
+
     protected void openCameraButton(){
         openCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent photoCaptureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(photoCaptureIntent, CAMERA_REQUEST);
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -138,6 +148,7 @@ public class DetailPaketActivity extends AppCompatActivity {
             scaleImage();
         }
     }
+
     protected void googleMapsButton(){
         googleMaps.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -148,6 +159,13 @@ public class DetailPaketActivity extends AppCompatActivity {
                 startActivity(mapIntent);
             }
         });
+    }
+
+
+
+
+    public void closeDetailPaketActivity(){
+        this.finish();
     }
 
 }

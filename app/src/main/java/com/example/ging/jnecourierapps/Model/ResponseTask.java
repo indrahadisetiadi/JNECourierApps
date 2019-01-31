@@ -2,7 +2,7 @@ package com.example.ging.jnecourierapps.Model;
 
 import java.util.List;
 
-public class Response {
+public class ResponseTask {
 
     String error;
     List<GetTask> message;

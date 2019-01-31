@@ -33,16 +33,6 @@
                     android:orientation="vertical"
                     android:padding="4dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
-                        android:gravity="center"
-                        android:text="RESI3213109283JKT"
-                        android:textColor="@color/biruJNE"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-
 
                     <View
                         android:layout_width="match_parent"
