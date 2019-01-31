@@ -106,9 +106,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
-
                     Intent goToDetailPacket = new Intent(context, DetailPaketActivity.class);
                     goToDetailPacket.putExtra("resi", resi.getText());
                     goToDetailPacket.putExtra("namaPengirim", namaPengirim.getText());
@@ -121,8 +118,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
                     goToDetailPacket.putExtra("alamat", alamat.getText());
                     goToDetailPacket.putExtra("latitude", latitude.getText());
                     goToDetailPacket.putExtra("longitude", longitude.getText());
-
-
                     context.startActivity(goToDetailPacket);
                 }
             });

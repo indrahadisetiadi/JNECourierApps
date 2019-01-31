@@ -1,6 +1,7 @@
 package com.example.ging.jnecourierapps.Adapter;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.example.ging.jnecourierapps.Activity.MainActivity;
@@ -28,6 +29,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     private Context mContext;
     CardView history_card, history_card_1;
     private List<GetHistory> getHistoryList;
+    Bundle bundle = new Bundle();
 
     public HistoryAdapter(Context mContext, List<GetHistory> getHistoryList) {
         this.mContext = mContext;
@@ -52,6 +54,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             viewHolder.penerima_gagal.setText(getHistory.getNama_penerima());
             viewHolder.waktu_gagal.setText(getHistory.getWaktu_penerima());
             viewHolder.status_gagal.setText(getHistory.getStatus_pengiriman());
+            viewHolder.alasan_gagal.setText(getHistory.getAlasan_gagal());
         }
         else if(getHistory.getStatus_pengiriman().equals("SUKSES")){
             Log.i("SUKSES","INI YANG SUKSES");
@@ -60,8 +63,17 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             viewHolder.penerima_berhasil.setText(getHistory.getNama_penerima());
             viewHolder.waktu_berhasil.setText(getHistory.getWaktu_penerima());
             viewHolder.status_berhasil.setText(getHistory.getStatus_pengiriman());
+            viewHolder.foto.setText(getHistory.getFoto_pengiriman());
         }
-
+        viewHolder.tujuan.setText(getHistory.getAlamat() + getHistory.getDesa_kelurahan() + getHistory.getPropinsi());
+        viewHolder.berat.setText(getHistory.getBerat());
+        viewHolder.tanggalDikirim.setText(getHistory.getTanggal_masuk());
+        viewHolder.jenisLayanan.setText(getHistory.getTipe_paket());
+        viewHolder.nohpPenerima.setText(getHistory.getNo_hp_penerima());
+        viewHolder.namaPenerima.setText(getHistory.getNo_hp_pengirim());
+        viewHolder.nohpPengirim.setText(getHistory.getNo_hp_pengirim());
+        viewHolder.namaPengirim.setText(getHistory.getNama_pengirim());
+        viewHolder.noResi.setText(getHistory.getNo_resi());
     }
 
     @Override
@@ -84,17 +96,41 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         @BindView(R.id.waktu_gagal) TextView waktu_gagal;
         @BindView(R.id.status_gagal) TextView status_gagal;
 
+        TextView noResi = new TextView(mContext);
+        TextView namaPengirim = new TextView(mContext);
+        TextView nohpPengirim = new TextView(mContext);
+        TextView namaPenerima = new TextView(mContext);
+        TextView nohpPenerima = new TextView(mContext);
+        TextView jenisLayanan = new TextView(mContext);
+        TextView tanggalDikirim = new TextView(mContext);
+        TextView berat = new TextView(mContext);
+        TextView tujuan = new TextView(mContext);
+        TextView foto = new TextView(mContext);
+        TextView alasan_gagal = new TextView(mContext);
+
+
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            bundle.putString("noResi",noResi.toString());
+            bundle.putString("namaPengirim",namaPengirim.toString());
+            bundle.putString("nohpPengirim",nohpPengirim.toString());
+            bundle.putString("namaPenerima",namaPenerima.toString());
+            bundle.putString("nohpPenerima",nohpPenerima.toString());
+            bundle.putString("jenisLayanan",jenisLayanan.toString());
+            bundle.putString("tanggalDikirim",tanggalDikirim.toString());
+            bundle.putString("berat",berat.toString());
+            bundle.putString("tujuan",tujuan.toString());
             history_card = itemView.findViewById(R.id.history_card_gagal);
             history_card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
+                    bundle.putString("alasan_gagal",alasan_gagal.toString());
                     BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialogFragment();
+                    bottomSheetDialogFragment.setArguments(bundle);
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 }
             });
@@ -103,11 +139,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
             history_card_1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
-//                    BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryGagalBottomDialogFragment();
-//                    bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                     Log.i("HEHEHE", "BISA DONG BROOOOOOOOO");
+                    bundle.putString("foto",foto.toString());
                     BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialogFragment();
+                    bottomSheetDialogFragment.setArguments(bundle);
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
                 }
             });
