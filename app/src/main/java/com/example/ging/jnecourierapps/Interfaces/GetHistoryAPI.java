@@ -1,6 +1,5 @@
 package com.example.ging.jnecourierapps.Interfaces;
 
-import com.example.ging.jnecourierapps.Model.Response;
 import com.example.ging.jnecourierapps.Model.ResponseHistory;
 
 import retrofit2.Call;

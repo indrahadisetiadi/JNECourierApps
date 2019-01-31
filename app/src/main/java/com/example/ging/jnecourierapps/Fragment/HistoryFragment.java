@@ -21,7 +21,6 @@ import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
 import com.example.ging.jnecourierapps.Interfaces.GetHistoryAPI;
 import com.example.ging.jnecourierapps.Interfaces.GetTaskAPI;
 import com.example.ging.jnecourierapps.Model.GetHistory;
-import com.example.ging.jnecourierapps.Model.Response;
 import com.example.ging.jnecourierapps.Model.ResponseHistory;
 import com.example.ging.jnecourierapps.R;
 import com.example.ging.jnecourierapps.Url.BaseUrl;
@@ -71,7 +70,6 @@ public class HistoryFragment extends Fragment {
         historyList = view.findViewById(R.id.historyList);
         historyList.setLayoutManager(new LinearLayoutManager(getActivity()));
         historyList.setItemAnimator(new DefaultItemAnimator());
-        progressBarTask = viewTemp.findViewById(R.id.historyProgress);
         historyList.setAdapter(historyAdapter);
         mySwipeRefreshLayout = view.findViewById(R.id.historyRefresh);
         load_task();
