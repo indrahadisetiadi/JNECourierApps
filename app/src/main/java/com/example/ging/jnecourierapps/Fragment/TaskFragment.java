@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.ging.jnecourierapps.Activity.MainActivity;
 import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
 import com.example.ging.jnecourierapps.Interfaces.GetTaskAPI;
 import com.example.ging.jnecourierapps.Model.GetTask;
 import com.example.ging.jnecourierapps.Model.ResponseTask;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
 import com.example.ging.jnecourierapps.Url.BaseUrl;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class TaskFragment extends Fragment {
     RecyclerView tasklist;
     private List<GetTask> getTaskList = new ArrayList<>();
     TaskAdapter taskAdapter;
+    SessionManager sessionManager;
     ProgressBar progressBarTask;
     View viewTemp;
     public int state;
@@ -61,6 +64,7 @@ public class TaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        sessionManager = new SessionManager(getActivity());
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         viewTemp = view;
 
@@ -92,7 +96,8 @@ public class TaskFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
         GetTaskAPI getTaskAPI = retrofit.create(GetTaskAPI.class);
 
-        Call<ResponseTask> responseCall = getTaskAPI.getPaket("22","-6.914744","107.609810");
+
+        Call<ResponseTask> responseCall = getTaskAPI.getPaket("22",sessionManager.getLatitude(),sessionManager.getLongitude());
         responseCall.enqueue(new Callback<ResponseTask>() {
             @Override
             public void onResponse(Call<ResponseTask> call, retrofit2.Response<ResponseTask> response) {
