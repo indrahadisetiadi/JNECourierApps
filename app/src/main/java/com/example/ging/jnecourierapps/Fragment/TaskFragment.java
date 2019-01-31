@@ -101,22 +101,22 @@ public class TaskFragment extends Fragment {
         responseCall.enqueue(new Callback<ResponseTask>() {
             @Override
             public void onResponse(Call<ResponseTask> call, retrofit2.Response<ResponseTask> response) {
-                Log.i("TASK", response.body().getError());
-
                 taskAdapter = new TaskAdapter(getContext(),getTaskList);
                 tasklist.setAdapter(taskAdapter);
 
-                if (response.body().getError().equals("0")){
-                    mySwipeRefreshLayout.setRefreshing(false);
-                    toast.cancel();
-                    progressBarTask.setVisibility(View.GONE);
+                if (response.body() != null){
+                    if (response.body().getError().equals("0")){
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        toast.cancel();
+                        progressBarTask.setVisibility(View.GONE);
 
-                    taskAdapter = new TaskAdapter(getContext(), response.body().getMessage());
-                    tasklist.setAdapter(taskAdapter);
-                }else{
-                    mySwipeRefreshLayout.setRefreshing(false);
-                    final Toast toast = Toast.makeText(getActivity(), "Try Again, Swipe to refresh", Toast.LENGTH_LONG);
-                    toast.show();
+                        taskAdapter = new TaskAdapter(getContext(), response.body().getMessage());
+                        tasklist.setAdapter(taskAdapter);
+                    }else{
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        final Toast toast = Toast.makeText(getActivity(), "Try Again, Swipe to refresh", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
                 }
             }
 

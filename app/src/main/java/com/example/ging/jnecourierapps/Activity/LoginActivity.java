@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Username.getText().toString())){
-                    form_validation_error("Email dan password harap diisi.");
+                    form_validation_error("Email & password Empty");
                 }
                 else{
                     loginRequest();
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //progress text
         TextView msg = new TextView(this);
-        msg.setText("Harap Tunggu");
+        msg.setText("Please Wait");
         msg.setPadding(10, 80, 10, 30);
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //berhasil text
         TextView msg = new TextView(this);
-        msg.setText("Login Berhasil");
+        msg.setText("Login Successfull");
         msg.setPadding(10, 80, 10, 30);
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
@@ -201,14 +201,14 @@ public class LoginActivity extends AppCompatActivity {
                     openDialog();
                 }else{
                     Log.i("Error", response.body().getError());
-                    form_validation_error("Username & Password Tidak Cocok Broooo");
+                    form_validation_error("Username & Password Not Match");
                 }
 
             }
 
             @Override
             public void onFailure(Call<com.example.ging.jnecourierapps.Model.Login> call, Throwable t) {
-                form_validation_error("Koneksi dengan server error");
+                form_validation_error("Connection Error");
             }
         });
 

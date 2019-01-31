@@ -20,13 +20,6 @@ public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment 
         Button tutup_history_gagal;
         View view = inflater.inflate(R.layout.bottomsheet_history_gagal, container, false);
         Log.i("ISI VARIABLE",getArguments().getString("noResi"));
-        tutup_history_gagal = view.findViewById(R.id.tutup_history_gagal);
-        tutup_history_gagal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HistoryGagalBottomDialogFragment.this.dismiss();
-            }
-        });
         return view;
     }
 }

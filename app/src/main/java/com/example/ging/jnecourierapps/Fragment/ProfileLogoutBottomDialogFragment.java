@@ -25,7 +25,6 @@ public class ProfileLogoutBottomDialogFragment extends BottomSheetDialogFragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottomsheet_profile_logout, container, false);
         logoout_iya = view.findViewById(R.id.logout_iya);
-        logout_tidak = view.findViewById(R.id.logout_tidak);
 
         logoout_iya.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,13 +34,6 @@ public class ProfileLogoutBottomDialogFragment extends BottomSheetDialogFragment
                 Intent LoginPage = new Intent(getContext(), LoginActivity.class);
                 startActivity(LoginPage);
                 getActivity().finish();
-            }
-        });
-
-        logout_tidak.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProfileLogoutBottomDialogFragment.this.dismiss();
             }
         });
 

@@ -19,7 +19,7 @@ public class ProfilBottomDialogFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.bottomsheet_profile_profil, container, false);
-        kendaraan_tutup = view.findViewById(R.id.kendaraan_tutup);
+
 
         TextView nama, nik, status,kecamatan;
         nama = view.findViewById(R.id.namaKurir);
@@ -33,13 +33,6 @@ public class ProfilBottomDialogFragment extends BottomSheetDialogFragment {
         status.setText(sessionManager.getProfile().getStatus());
         kecamatan.setText(sessionManager.getProfile().getKecamatan() + " | " + sessionManager.getProfile().getKendaraan_kurir());
 
-
-        kendaraan_tutup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ProfilBottomDialogFragment.this.dismiss();
-            }
-        });
         return view;
     }
 }

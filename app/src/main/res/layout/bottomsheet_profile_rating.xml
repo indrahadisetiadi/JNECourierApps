@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:background="@color/posindonesia"
-            android:text="Baik, Performa bagus"
+            android:text="Perfect Performance!"
             android:textColor="#fff"
             android:textStyle="bold|italic" />
 
