@@ -78,7 +78,7 @@ public class GagalBottomDialogFragment extends BottomSheetDialogFragment {
                 toast.show();
                 if (response.body().getError().equals("0")){
                     toast.cancel();
-                    final Toast toastComplete = Toast.makeText(getActivity(), "Berhasil", Toast.LENGTH_LONG);
+                    final Toast toastComplete = Toast.makeText(getActivity(), "Complete", Toast.LENGTH_LONG);
                     toastComplete.show();
                     GagalBottomDialogFragment.this.dismiss();
                     getActivity().finish();
@@ -91,7 +91,7 @@ public class GagalBottomDialogFragment extends BottomSheetDialogFragment {
             @Override
             public void onFailure(Call<ResponseTask> call, Throwable t) {
                 Log.i("PAKET GAGAL ERR", t.getMessage());
-                final Toast toast = Toast.makeText(getActivity(), "Coba Lagi", Toast.LENGTH_LONG);
+                final Toast toast = Toast.makeText(getActivity(), "Try Again", Toast.LENGTH_LONG);
                 toast.show();
             }
         });

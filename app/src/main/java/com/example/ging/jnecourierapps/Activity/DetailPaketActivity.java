@@ -195,9 +195,10 @@ public class DetailPaketActivity extends AppCompatActivity {
                 final Toast toast = Toast.makeText(DetailPaketActivity.this, "Uploading...", Toast.LENGTH_LONG);
                 toast.show();
                 Log.i("UPLOAD FOTO", response.message());
-                if (response.message() == "OK"){
+                if (response.message().equals("OK")){
                     final Toast toastComplete = Toast.makeText(DetailPaketActivity.this, "Complete!", Toast.LENGTH_LONG);
                     toastComplete.show();
+                    DetailPaketActivity.this.finish();
                 }
             }
 
