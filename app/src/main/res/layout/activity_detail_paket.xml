@@ -45,6 +45,7 @@
                     android:padding="4dp">
 
                     <TextView
+                        android:id="@+id/detailResi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
@@ -64,10 +65,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Pengirim" />
+                            android:text="Sender" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/namaPengirim"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -113,10 +114,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Penerima" />
+                            android:text="Consignee" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/namaPenerima"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -162,10 +163,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Layanan" />
+                            android:text="Service" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/layanan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -191,10 +192,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Dikirim" />
+                            android:text="Date" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/dikirim"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -218,10 +219,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Berat" />
+                            android:text="Weight" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/berat"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -245,7 +246,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="2"
-                            android:text="Tujuan" />
+                            android:text="Address" />
 
                         <TextView
                             android:id="@+id/detailAlamat"
@@ -287,15 +288,15 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/gagalBtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:backgroundTint="@color/failed"
             android:drawableLeft="@drawable/ic_cancel_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
-            android:text="Gagal"
             android:foreground="?android:attr/selectableItemBackground"
+            android:text="Gagal"
             android:textColor="@color/putih" />
 
         <Button

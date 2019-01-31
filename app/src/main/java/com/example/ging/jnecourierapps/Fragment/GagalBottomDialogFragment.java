@@ -9,19 +9,18 @@ import android.widget.Button;
 
 import com.example.ging.jnecourierapps.R;
 
-public class HistoryBottomDialogFragment extends BottomSheetDialogFragment {
+public class GagalBottomDialogFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Button tutup_history_berhasil,history_foto_lihat;
-        View view = inflater.inflate(R.layout.bottomsheet_history, container, false);
-        tutup_history_berhasil = view.findViewById(R.id.gagalSubmit);
-        tutup_history_berhasil.setOnClickListener(new View.OnClickListener() {
+        Button tutup_history_foto;
+        View view = inflater.inflate(R.layout.bottomsheet_gagal, container, false);
+        tutup_history_foto = view.findViewById(R.id.gagalSubmit);
+        tutup_history_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HistoryBottomDialogFragment.this.dismiss();
+                GagalBottomDialogFragment.this.dismiss();
             }
         });
-
         return view;
     }
 }

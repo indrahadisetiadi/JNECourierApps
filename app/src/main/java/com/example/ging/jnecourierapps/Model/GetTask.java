@@ -6,7 +6,7 @@ public class GetTask {
 
     private String no_resi;
     private String Tanggal_masuk;
-    private Integer estimasi;
+    private String estimasi;
     private Integer sisa;
     private String alamat;
     private String desa_kelurahan;
@@ -28,6 +28,11 @@ public class GetTask {
     private Double latitude;
     private Double longitude;
     private Double jarak;
+    private Integer estimasi_sampe;
+
+    public Integer getEstimasi_sampe() {
+        return estimasi_sampe;
+    }
 
     public String getNo_resi() {
         return no_resi;
@@ -37,7 +42,7 @@ public class GetTask {
         return Tanggal_masuk;
     }
 
-    public Integer getEstimasi() {
+    public String getEstimasi() {
         return estimasi;
     }
 
