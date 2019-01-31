@@ -97,7 +97,6 @@ public class HistoryFragment extends Fragment {
                 if (response.body().getError().equals("0")) {
                     mySwipeRefreshLayout.setRefreshing(false);
                     toast.cancel();
-//                    progressBarTask.setVisibility(View.GONE);
                     historyAdapter = new HistoryAdapter(getContext(), response.body().getMessage());
                     historyList.setAdapter(historyAdapter);
                 } else {

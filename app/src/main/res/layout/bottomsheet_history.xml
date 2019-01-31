@@ -45,6 +45,7 @@
                         android:textColor="@color/putih" />
 
                     <TextView
+                        android:id="@+id/no_resi"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="20dp"
@@ -67,7 +68,7 @@
                             android:text="Pengirim" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nama_pengirim"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -86,7 +87,7 @@
                             android:layout_weight="2" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nohp_pengirim"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -114,7 +115,7 @@
                             android:text="Penerima" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nama_penerima"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -134,7 +135,7 @@
                             android:layout_weight="2" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/nohp_penerima"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -162,7 +163,7 @@
                             android:text="Layanan" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/jenis_layanan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -191,7 +192,7 @@
                             android:text="Dikirim" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/waktu_dikirim"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -218,7 +219,7 @@
                             android:text="Berat" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/berat_paket"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
