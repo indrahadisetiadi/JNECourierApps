@@ -254,6 +254,13 @@
                             android:text="Jl. Bumi Marine Emas Barat III No.A56, Keputih, Sukolilo, Surabaya, Jawa, Indonesia Jl. Bumi Marine Emas Barat III No.A56, Keputih, Sukolilo, Surabaya, Jawa, Indonesia" />
                     </LinearLayout>
 
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#efefef" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
