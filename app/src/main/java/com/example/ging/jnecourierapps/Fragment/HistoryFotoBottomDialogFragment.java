@@ -24,6 +24,7 @@ public class HistoryFotoBottomDialogFragment extends BottomSheetDialogFragment {
         foto = baseUrl.getImagesUrl() + getArguments().getString("foto");
         Log.i("FOTO",foto);
         View view = inflater.inflate(R.layout.bottomsheet_history_foto, container, false);
+<<<<<<< HEAD
         foto_bukti = view.findViewById(R.id.foto_bukti);
         Picasso.get().load(foto).into(foto_bukti);
         tutup_history_foto = view.findViewById(R.id.tutup_history_foto);
@@ -33,6 +34,8 @@ public class HistoryFotoBottomDialogFragment extends BottomSheetDialogFragment {
                 HistoryFotoBottomDialogFragment.this.dismiss();
             }
         });
+=======
+>>>>>>> mail2
         return view;
     }
 }

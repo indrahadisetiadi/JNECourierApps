@@ -83,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginBottom="18dp"
             android:background="@drawable/login_box_layout">
 
             <TextView
@@ -94,16 +95,6 @@
                 android:layout_margin="10dp"
                 android:text="Paket yang berhasil dikirim 1500 dari 3000"
                 android:textColor="@color/posindonesia"/>
-
-            <Button
-                android:id="@+id/statistik_tutup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/fail_button_layout"
-                android:text="Tutup"
-                android:textColor="#fff" />
 
         </LinearLayout>
     </LinearLayout>

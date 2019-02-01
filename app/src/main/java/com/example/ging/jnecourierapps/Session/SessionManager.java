@@ -15,6 +15,8 @@ public class SessionManager {
     private String user_id;
     private String key;
     private Profile profile;
+    private String longitude;
+    private String latitude;
 
 
 
@@ -90,6 +92,29 @@ public class SessionManager {
         return pref.getString("key", "no key");
     }
     //KEY
+
+
+    public String getLongitude() {
+        return pref.getString("longitude",null);
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+        editor.putString("longitude", longitude);
+        editor.commit();
+    }
+
+    public String getLatitude() {
+        return pref.getString("latitude",null) ;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+        editor.putString("latitude", latitude);
+        editor.commit();
+
+    }
+
 
 
 }

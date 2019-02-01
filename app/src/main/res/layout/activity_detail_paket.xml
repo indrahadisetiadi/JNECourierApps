@@ -262,6 +262,32 @@
                         android:layout_marginTop="8dp"
                         android:background="#efefef" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="8dp">
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:text="Receiver" />
+
+                        <EditText
+                            android:id="@+id/yangnerima"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:ems="10"
+                            android:hint="Input Receiver Name Here"
+                            android:inputType="textPersonName"
+                            android:textColorHint="@color/colorPrimaryDark" />
+
+                    </LinearLayout>
+
                     <ImageView
                         android:id="@+id/imagePlaceholder"
                         android:layout_width="match_parent"
@@ -296,7 +322,7 @@
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Gagal"
+            android:text="Failed"
             android:textColor="@color/putih" />
 
         <Button
@@ -308,7 +334,7 @@
             android:drawablePadding="4dp"
             android:drawableTint="@color/putih"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Berhasil"
+            android:text="Success"
             android:textColor="@color/putih" />
 
         <Button
@@ -319,7 +345,7 @@
             android:drawableLeft="@drawable/ic_directions_black_24dp"
             android:drawablePadding="4dp"
             android:drawableTint="@color/biruJNE"
-            android:text="Navigasi"
+            android:text="Navigation"
             android:foreground="?android:attr/selectableItemBackground"
             android:textColor="@color/biruJNE"
 

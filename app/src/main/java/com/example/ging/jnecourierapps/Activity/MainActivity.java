@@ -137,6 +137,8 @@ public class MainActivity extends AppCompatActivity{
                             longitude = location.getLongitude();
                             Log.i("BERHASIL LAT",String.valueOf(latitude));
                             Log.i("BERHASIL LONG",String.valueOf(longitude));
+                            sessionManager.setLatitude(String.valueOf(latitude));
+                            sessionManager.setLongitude(String.valueOf(longitude));
                             sendDeviceDetailsHelper.sendJSON(MainActivity.this,latitude,longitude,sessionManager.getKey(),sessionManager.getterUserId());
                             Log.i("BERHASIL","BERHASIL");
                         }

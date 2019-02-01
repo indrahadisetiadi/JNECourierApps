@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.ging.jnecourierapps.Activity.MainActivity;
 import com.example.ging.jnecourierapps.Adapter.TaskAdapter;
 import com.example.ging.jnecourierapps.Interfaces.GetTaskAPI;
 import com.example.ging.jnecourierapps.Model.GetTask;
 import com.example.ging.jnecourierapps.Model.ResponseTask;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
 import com.example.ging.jnecourierapps.Url.BaseUrl;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class TaskFragment extends Fragment {
     RecyclerView tasklist;
     private List<GetTask> getTaskList = new ArrayList<>();
     TaskAdapter taskAdapter;
+    SessionManager sessionManager;
     ProgressBar progressBarTask;
     View viewTemp;
     public int state;
@@ -61,6 +64,7 @@ public class TaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        sessionManager = new SessionManager(getActivity());
         View view = inflater.inflate(R.layout.fragment_task, container, false);
         viewTemp = view;
 
@@ -92,26 +96,27 @@ public class TaskFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).client(okHttpClient).addConverterFactory(GsonConverterFactory.create()).build();
         GetTaskAPI getTaskAPI = retrofit.create(GetTaskAPI.class);
 
-        Call<ResponseTask> responseCall = getTaskAPI.getPaket("22","-6.914744","107.609810");
+
+        Call<ResponseTask> responseCall = getTaskAPI.getPaket("22",sessionManager.getLatitude(),sessionManager.getLongitude());
         responseCall.enqueue(new Callback<ResponseTask>() {
             @Override
             public void onResponse(Call<ResponseTask> call, retrofit2.Response<ResponseTask> response) {
-                Log.i("TASK", response.body().getError());
-
                 taskAdapter = new TaskAdapter(getContext(),getTaskList);
                 tasklist.setAdapter(taskAdapter);
 
-                if (response.body().getError().equals("0")){
-                    mySwipeRefreshLayout.setRefreshing(false);
-                    toast.cancel();
-                    progressBarTask.setVisibility(View.GONE);
+                if (response.body() != null){
+                    if (response.body().getError().equals("0")){
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        toast.cancel();
+                        progressBarTask.setVisibility(View.GONE);
 
-                    taskAdapter = new TaskAdapter(getContext(), response.body().getMessage());
-                    tasklist.setAdapter(taskAdapter);
-                }else{
-                    mySwipeRefreshLayout.setRefreshing(false);
-                    final Toast toast = Toast.makeText(getActivity(), "Try Again, Swipe to refresh", Toast.LENGTH_LONG);
-                    toast.show();
+                        taskAdapter = new TaskAdapter(getContext(), response.body().getMessage());
+                        tasklist.setAdapter(taskAdapter);
+                    }else{
+                        mySwipeRefreshLayout.setRefreshing(false);
+                        final Toast toast = Toast.makeText(getActivity(), "Try Again, Swipe to refresh", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
                 }
             }
 

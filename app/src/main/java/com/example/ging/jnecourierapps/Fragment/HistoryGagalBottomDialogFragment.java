@@ -19,6 +19,7 @@ public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Button tutup_history_gagal;
         View view = inflater.inflate(R.layout.bottomsheet_history_gagal, container, false);
+<<<<<<< HEAD
 
         TextView noResi = view.findViewById(R.id.no_resi);
         noResi.setText(getArguments().getString("noResi"));
@@ -59,6 +60,9 @@ public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment 
                 HistoryGagalBottomDialogFragment.this.dismiss();
             }
         });
+=======
+        Log.i("ISI VARIABLE",getArguments().getString("noResi"));
+>>>>>>> mail2
         return view;
     }
 }

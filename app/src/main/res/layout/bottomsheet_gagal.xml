@@ -74,7 +74,7 @@
                             android:layout_height="match_parent"
                             android:backgroundTint="@color/failed"
                             android:drawableTint="@color/putih"
-                            android:text="GAGAL"
+                            android:text="Failed to Deliver"
                             android:textColor="@color/putih" />
                     </LinearLayout>
 

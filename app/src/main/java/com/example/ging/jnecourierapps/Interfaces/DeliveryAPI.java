@@ -39,7 +39,8 @@ public interface DeliveryAPI {
     Call<ResponseBody> submitPaketSukses(
             @Part MultipartBody.Part foto_pengiriman,
             @Part MultipartBody.Part id_kurir,
-            @Part MultipartBody.Part no_resi
+            @Part MultipartBody.Part no_resi,
+            @Part MultipartBody.Part yangnerima
     );
 
 }
