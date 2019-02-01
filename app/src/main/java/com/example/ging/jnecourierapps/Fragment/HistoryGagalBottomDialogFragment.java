@@ -19,7 +19,7 @@ public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Button tutup_history_gagal;
         View view = inflater.inflate(R.layout.bottomsheet_history_gagal, container, false);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
         TextView noResi = view.findViewById(R.id.no_resi);
         noResi.setText(getArguments().getString("noResi"));
@@ -53,16 +53,15 @@ public class HistoryGagalBottomDialogFragment extends BottomSheetDialogFragment 
         TextView alasanGagal = view.findViewById(R.id.alasan_gagal);
         alasanGagal.setText(getArguments().getString("alasan_gagal"));
 
-        tutup_history_gagal = view.findViewById(R.id.tutup_history_gagal);
-        tutup_history_gagal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HistoryGagalBottomDialogFragment.this.dismiss();
-            }
-        });
-=======
+//        tutup_history_gagal = view.findViewById(R.id.tutup_history_gagal);
+//        tutup_history_gagal.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                HistoryGagalBottomDialogFragment.this.dismiss();
+//            }
+//        });
+//=======
         Log.i("ISI VARIABLE",getArguments().getString("noResi"));
->>>>>>> mail2
         return view;
     }
 }

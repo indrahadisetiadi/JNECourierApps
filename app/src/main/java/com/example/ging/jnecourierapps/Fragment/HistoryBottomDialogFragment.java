@@ -50,14 +50,17 @@ public class HistoryBottomDialogFragment extends BottomSheetDialogFragment {
         foto = getArguments().getString("foto");
         Log.i("FOTO",foto);
 
+        TextView yangnerima = view.findViewById(R.id.nama_yangnerima);
+        yangnerima.setText(getArguments().getString("yangnerima"));
 
-        tutup_history_berhasil = view.findViewById(R.id.tutup_history_berhasil);
-        tutup_history_berhasil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HistoryBottomDialogFragment.this.dismiss();
-            }
-        });
+
+//        tutup_history_berhasil = view.findViewById(R.id.tutup_history_berhasil);
+//        tutup_history_berhasil.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                HistoryBottomDialogFragment.this.dismiss();
+//            }
+//        });
 
         history_foto_lihat = view.findViewById(R.id.history_foto_lihat);
         history_foto_lihat.setOnClickListener(new View.OnClickListener() {

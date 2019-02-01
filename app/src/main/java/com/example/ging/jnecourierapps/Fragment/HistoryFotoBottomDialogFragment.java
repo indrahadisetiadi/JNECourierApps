@@ -19,23 +19,20 @@ public class HistoryFotoBottomDialogFragment extends BottomSheetDialogFragment {
     String foto;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Button tutup_history_foto;
+//        Button tutup_history_foto;
 //        Log.i("Fotonya",getArguments().getString("foto"));
         foto = baseUrl.getImagesUrl() + getArguments().getString("foto");
         Log.i("FOTO",foto);
         View view = inflater.inflate(R.layout.bottomsheet_history_foto, container, false);
-<<<<<<< HEAD
         foto_bukti = view.findViewById(R.id.foto_bukti);
         Picasso.get().load(foto).into(foto_bukti);
-        tutup_history_foto = view.findViewById(R.id.tutup_history_foto);
-        tutup_history_foto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HistoryFotoBottomDialogFragment.this.dismiss();
-            }
-        });
-=======
->>>>>>> mail2
+//        tutup_history_foto = view.findViewById(R.id.tutup_history_foto);
+//        tutup_history_foto.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                HistoryFotoBottomDialogFragment.this.dismiss();
+//            }
+//        });
         return view;
     }
 }

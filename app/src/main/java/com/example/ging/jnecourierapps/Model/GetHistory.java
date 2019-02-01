@@ -24,6 +24,7 @@ public class GetHistory {
     private String status_pengiriman;
     private String foto_pengiriman;
     private String alasan_gagal;
+    private String nama_penerima_paket;
 
 
     public String getNo_resi() {
@@ -113,5 +114,8 @@ public class GetHistory {
     public String getAlasan_gagal() {
         return alasan_gagal;
     }
+
+    public String getyangnerima() { return nama_penerima_paket; }
+
 
 }

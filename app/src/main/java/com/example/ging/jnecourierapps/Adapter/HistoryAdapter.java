@@ -76,6 +76,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         viewHolder.nohpPengirim.setText(getHistory.getNo_hp_pengirim());
         viewHolder.namaPengirim.setText(getHistory.getNama_pengirim());
         viewHolder.noResi.setText(getHistory.getNo_resi());
+        viewHolder.yangnerima.setText(getHistory.getyangnerima());
+
     }
 
     @Override
@@ -109,6 +111,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
         TextView tujuan = new TextView(mContext);
         TextView foto = new TextView(mContext);
         TextView alasan_gagal = new TextView(mContext);
+        TextView yangnerima = new TextView(mContext);
 
 
 
@@ -154,6 +157,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
                     bundle.putString("berat",berat.getText().toString());
                     bundle.putString("tujuan",tujuan.getText().toString());
                     bundle.putString("foto",foto.getText().toString());
+                    bundle.putString("yangnerima",yangnerima.getText().toString());
                     BottomSheetDialogFragment bottomSheetDialogFragment = new HistoryBottomDialogFragment();
                     bottomSheetDialogFragment.setArguments(bundle);
                     bottomSheetDialogFragment.show(((MainActivity)mContext).getSupportFragmentManager(), bottomSheetDialogFragment.getTag());
