@@ -98,6 +98,7 @@ public class TaskFragment extends Fragment {
 
 
         Call<ResponseTask> responseCall = getTaskAPI.getPaket("22",sessionManager.getLatitude(),sessionManager.getLongitude());
+        Toast.makeText(getActivity(),sessionManager.getLatitude() + "," + sessionManager.getLongitude(), Toast.LENGTH_LONG).show();
         responseCall.enqueue(new Callback<ResponseTask>() {
             @Override
             public void onResponse(Call<ResponseTask> call, retrofit2.Response<ResponseTask> response) {
