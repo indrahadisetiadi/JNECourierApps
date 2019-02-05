@@ -12,6 +12,7 @@
         android:layout_height="100dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
+        android:foreground="?android:attr/selectableItemBackground"
         android:layout_marginBottom="8dp"
         app:cardElevation="4dp">
 
@@ -26,7 +27,15 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/blue_gradient_color" />
+                android:background="@drawable/orange_gradient_color" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_move_to_inbox_black_24dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,28 +51,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="No Resi" />
+                    android:text="Receipt" />
 
                 <TextView
                     android:id="@+id/titlePenerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Penerima" />
+                    android:text="Consignee" />
 
                 <TextView
                     android:id="@+id/titleWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Waktu" />
+                    android:text="Time" />
 
                 <TextView
                     android:id="@+id/titleStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Jarak" />
+                    android:text="Distance" />
             </LinearLayout>
 
 
@@ -99,11 +108,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/jarak"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="1.2 Km"
+                    android:text="1.2 Km - Dago"
                     android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
             </LinearLayout>

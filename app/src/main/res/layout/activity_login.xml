@@ -2,18 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/biruJNE"
+    android:background="@color/posindonesia"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true">
 
     <RelativeLayout
+        android:id="@+id/box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp"
-        android:background="#fff"
-        android:elevation="4dp"
+        android:background="@drawable/login_box_layout"
         android:orientation="vertical"
         android:padding="20dp">
 
@@ -26,9 +26,9 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="136dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logojne" />
+                android:src="@drawable/posindonesia" />
 
             <TextView
                 android:id="@+id/textView"
@@ -38,22 +38,27 @@
                 android:text="Courier Application System"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textColor="@color/biruJNE"
+                android:textColor="@color/posindonesia"
                 android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:paddingRight="20dp">
 
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/email_black"
-                    android:drawableTint="@color/merahJNE"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true" />
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/posindonesia"
+                    android:hint="Username"
+                    android:singleLine="true"
+                    android:textColor="@color/posindonesia" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -66,23 +71,30 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    android:background="@null"
                     android:drawableLeft="@drawable/lock_black_24dp"
-                    android:drawableTint="@color/merahJNE"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/posindonesia"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:singleLine="true" />
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="20dp"
+                    android:singleLine="true"
+                    android:textColor="@color/posindonesia" />
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/login_action"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="22dp"
-                android:background="@drawable/ripple_effect"
-                android:text="Login"
+                android:background="@drawable/default_layout"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18sp" />
+
         </LinearLayout>
     </RelativeLayout>
 

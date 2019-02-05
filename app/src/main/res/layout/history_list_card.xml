@@ -8,11 +8,13 @@
     android:padding="0dp">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/history_card_gagal"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="4dp">
 
 
@@ -26,7 +28,7 @@
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/red_gradient_color" />
+                android:background="@drawable/green_gradient_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -42,21 +44,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="No Resi" />
+                    android:text="Receipt" />
 
                 <TextView
                     android:id="@+id/titlePenerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Penerima" />
+                    android:text="Consignee" />
 
                 <TextView
                     android:id="@+id/titleWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Waktu" />
+                    android:text="Time" />
 
                 <TextView
                     android:id="@+id/titleStatus"
@@ -77,30 +79,29 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/resi"
+                    android:id="@+id/resi_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="RESI2192013JKL"
-                    android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/penerima"
+                    android:id="@+id/penerima_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="Purnomo" />
 
                 <TextView
-                    android:id="@+id/waktu"
+                    android:id="@+id/waktu_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="18:30" />
+                    android:text="-" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status_gagal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
@@ -113,57 +114,57 @@
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
+        android:id="@+id/history_card_berhasil"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
         app:cardElevation="4dp">
 
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <View
                 android:id="@+id/view"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/green_gradient_color" />
+                android:background="@drawable/orange_gradient_color" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_marginStart="10dp"
                 android:layout_marginRight="10dp"
-                >
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/titleResi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="No Resi" />
+                    android:text="Receipt" />
 
                 <TextView
                     android:id="@+id/titlePenerima"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Penerima" />
+                    android:text="Consignee" />
 
                 <TextView
                     android:id="@+id/titleWaktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
-                    android:text="Waktu" />
+                    android:text="Time" />
 
                 <TextView
                     android:id="@+id/titleStatus"
@@ -174,46 +175,44 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-
                 android:layout_marginStart="12dp"
+                android:layout_weight="1"
+
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/resi"
+                    android:id="@+id/resi_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="RESI2192013JKL"
-                    android:textColor="@color/biruJNE"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/penerima"
+                    android:id="@+id/penerima_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="Purnomo" />
 
                 <TextView
-                    android:id="@+id/waktu"
+                    android:id="@+id/waktu_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="18:30" />
 
                 <TextView
-                    android:id="@+id/status"
+                    android:id="@+id/status_berhasil"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="1dp"
                     android:text="Sukses"
-                    android:textColor="@color/success"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold" />
             </LinearLayout>
 

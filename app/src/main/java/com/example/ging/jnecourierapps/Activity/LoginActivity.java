@@ -1,14 +1,18 @@
 package com.example.ging.jnecourierapps.Activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Handler;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.view.View;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -16,67 +20,86 @@ import android.widget.TextView;
 import android.view.Gravity;
 import android.graphics.Color;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import com.airbnb.lottie.L;
+import com.example.ging.jnecourierapps.Interfaces.LoginAPI;
+import com.example.ging.jnecourierapps.Model.Login;
+import com.example.ging.jnecourierapps.Model.Profile;
 import com.example.ging.jnecourierapps.R;
+import com.example.ging.jnecourierapps.Session.SessionManager;
+import com.example.ging.jnecourierapps.Url.BaseUrl;
+
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
-    Button LoginButton;
-    EditText Email, Password;
-
+    Button Login;
+    EditText Username, Password;
+    BaseUrl baseUrl = new BaseUrl();
+    SessionManager sessionManager;
+    Bitmap bmp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        super.setContentView(R.layout.activity_login);
 
-        Email =  findViewById(R.id.email);
+        sessionManager = new SessionManager(LoginActivity.this);
+
+        if(sessionManager.isLoggedIn()){
+            Intent MainPage = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(MainPage);
+            finish();
+        }
+
+        Username =  findViewById(R.id.email);
         Password = findViewById(R.id.password);
-        LoginButton = findViewById(R.id.login);
-
-        LoginButton.setOnClickListener(new View.OnClickListener() {
+        Login = findViewById(R.id.login_action);
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //jika form ada yang belum diisi
-                if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Email.getText().toString())){
-                    form_validation_error("Email dan password harap diisi.");
+                if(TextUtils.isEmpty(Password.getText().toString()) || TextUtils.isEmpty(Username.getText().toString())){
+                    form_validation_error("Email & password Empty");
                 }
                 else{
-                    //jika username dan password salah
-                    //form_validation_error("Email dan password salah, harap cek kembali.");
-                    openDialog();
+                    loginRequest();
                 }
             }
         });
     }
-
-
     private void openDialog(){
 
         LinearLayout layout = new LinearLayout(LoginActivity.this);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(20,20,20,20);
 
-        //progress bar
+        //progressbar
         ProgressBar progressBar = new ProgressBar(LoginActivity.this, null, android.R.attr.progressBarStyleLarge);
+//        progressBar.getIndeterminateDrawable().setColorFilter(0xE66E12,PorterDuff.Mode.MULTIPLY);
         layout.addView(progressBar);
 
         //progress text
         TextView msg = new TextView(this);
-        msg.setText("Harap Tunggu");
+        msg.setText("Please Wait");
         msg.setPadding(10, 80, 10, 30);
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
 
         final Handler delay = new Handler();
         delay.postDelayed(new Runnable() {
             @Override
             public void run() {
-                alertDialog.hide();
+                bottomSheetDialog.hide();
                 login_berhasil();
                 Intent goToActivity = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(goToActivity);
@@ -85,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
         }, 4000);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void form_validation_error(String pesan){
         LinearLayout layout = new LinearLayout(LoginActivity.this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -92,7 +116,10 @@ public class LoginActivity extends AppCompatActivity {
 
         //error image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.error));
+//        imageView.setImageDrawable(getDrawable(R.drawable.fail));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.fail);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 200,200, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //error text
@@ -103,14 +130,19 @@ public class LoginActivity extends AppCompatActivity {
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
-
-        new Dialog(getApplicationContext());
-        alertDialog.show();
-
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
+        final Handler delay = new Handler();
+        delay.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bottomSheetDialog.hide();
+            }
+        }, 2500);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void login_berhasil() {
         LinearLayout layout = new LinearLayout(LoginActivity.this);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -118,21 +150,68 @@ public class LoginActivity extends AppCompatActivity {
 
         //berhasil image
         ImageView imageView = new ImageView(LoginActivity.this);
-        imageView.setImageDrawable(getDrawable(R.drawable.success));
+//        imageView.setImageDrawable(getDrawable(R.drawable.success));
+        bmp=BitmapFactory.decodeResource(getResources(),R.drawable.success);//image is your image
+        bmp=Bitmap.createScaledBitmap(bmp, 200,200, true);
+        imageView.setImageBitmap(bmp);
         layout.addView(imageView);
 
         //berhasil text
         TextView msg = new TextView(this);
-        msg.setText("Login Berhasil");
+        msg.setText("Login Successfull");
         msg.setPadding(10, 80, 10, 30);
         msg.setGravity(Gravity.CENTER_HORIZONTAL);
         msg.setTextColor(Color.BLACK);
         layout.addView(msg);
 
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setView(layout);
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(LoginActivity.this);
+        bottomSheetDialog.setContentView(layout);
+        bottomSheetDialog.show();
+        final Handler delay = new Handler();
+        delay.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bottomSheetDialog.hide();
+            }
+        }, 1000);
+    }
 
-        new Dialog(getApplicationContext());
-        alertDialog.show();
+
+    private void loginRequest(){
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl.getUrl()).addConverterFactory(GsonConverterFactory.create()).build();
+        LoginAPI loginAPI = retrofit.create(LoginAPI.class);
+
+        Call<Login> call = loginAPI.login(Username.getText().toString(), Password.getText().toString());
+        call.enqueue(new Callback<com.example.ging.jnecourierapps.Model.Login>() {
+            @Override
+            public void onResponse(Call<com.example.ging.jnecourierapps.Model.Login> call, Response<com.example.ging.jnecourierapps.Model.Login> response) {
+
+
+                Log.i("True flag", response.message());
+                if (response.body().getError() == null){
+                    Log.i("Token", response.body().getToken());
+                    Log.i("Nama Kurir", response.body().getSuccess_login().getNama_kurir());
+                    Profile profile = new Profile();
+                    profile = response.body().getSuccess_login();
+                    sessionManager.setProfile(profile);
+                    sessionManager.setLogin(true);
+                    sessionManager.setterUserId(response.body().getSuccess_login().getId_kurir());
+                    sessionManager.setKey(response.body().getToken());
+                    Log.i("KEY", sessionManager.getKey());
+                    openDialog();
+                }else{
+                    Log.i("Error", response.body().getError());
+                    form_validation_error("Username & Password Not Match");
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<com.example.ging.jnecourierapps.Model.Login> call, Throwable t) {
+                form_validation_error("Connection Error");
+            }
+        });
+
+
     }
 }
