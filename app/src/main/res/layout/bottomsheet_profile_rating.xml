@@ -6,6 +6,17 @@
     android:layout_height="wrap_content"
     android:background="@drawable/login_box_layout">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="187dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@color/posindonesia"
+        android:text="Perfect Performance!"
+        android:textColor="#fff"
+        android:textStyle="bold|italic" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,17 +42,6 @@
             android:theme="@style/RatingBar"
             android:rating="5"
             android:stepSize="1.0" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="187dp"
-            android:layout_height="22dp"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:background="@color/posindonesia"
-            android:text="Perfect Performance!"
-            android:textColor="#fff"
-            android:textStyle="bold|italic" />
 
         <LinearLayout
             android:layout_width="match_parent"
